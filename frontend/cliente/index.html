@@ -52,7 +52,7 @@
         <!-- Centro: Links (solo para pantallas grandes) -->
         <div class="hidden lg:flex items-center gap-8">
         
-          <a href="/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="http://localhost/Raices/frontend/cliente/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
           <a href="/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
           <a href="/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
           <a href="/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
@@ -111,6 +111,117 @@
         </nav>
     </div>
 
+     <!---- Main ------>
+
+    <main class="mx-auto max-w-6xl px-4 py-10">
+      <!-- Presentación -->
+      <section class="text-center">
+        <span class="inline-flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-800">
+            <svg class="w-4 h-4"aria-hidden="true"xmlns="http://www.w3.org/2000/svg"fill="none"viewBox="0 0 24 24">
+             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21V11m0 0c-3 0-6-2-6-5 3 0 6 1 6 5Zm0 0c3 0 6-2 6-5-3 0-6 1-6 5Z" />
+            </svg>
+            <span class="font-bold text-brand">KM0</span>
+            Productos frescos de las islas
+        </span>
+
+        <h1 class="mt-6 text-3xl sm:text-5xl font-extrabold tracking-tight">
+          Descubre Nuestros Productos
+        </h1>
+        <p class="mt-4 text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          Verduras, frutas y productos regionales directamente de productores locales.
+          Calidad, frescura y sabor auténtico en cada pedido.
+        </p>
+      </section>
+      
+      <!-- Categorias -->
+      
+      <section id="productos" class="mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Verduras -->
+          <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
+            <img
+              src="/Raices/frontend/cliente/assets/img/verduras.jpg"
+              alt="Verduras"
+              class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <h2 class="text-2xl font-bold text-white">Verduras</h2>
+
+                <a
+                  href="#verduras"
+                  class="inline-flex items-center justify-center rounded-full bg-white/95 p-3 text-gray-900 shadow hover:bg-white"
+                  aria-label="Ver verduras"
+                >
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              <p class="mt-2 text-white/85 text-sm">Verduras del campo canario</p>
+            </div>
+          </article>
+
+          <!-- Frutas -->
+          <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
+            <img
+              src="/Raices/frontend/cliente/assets/img/fruta.jpg"
+              alt="Frutas"
+              class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <h2 class="text-2xl font-bold text-white">Frutas</h2>
+
+                <a
+                  href="#frutas"
+                  class="inline-flex items-center justify-center rounded-full bg-white/95 p-3 text-gray-900 shadow hover:bg-white"
+                  aria-label="Ver frutas"
+                >
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              <p class="mt-2 text-white/85 text-sm">Frutas frescas cultivadas en Canarias</p>
+            </div>
+          </article>
+
+          <!-- Regionales -->
+          <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
+            <img
+              src="/Raices/frontend/cliente/assets/img/quesos.jpg"
+              alt="Productos regionales"
+              class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="flex items-center justify-between">
+                <h2 class="text-2xl font-bold text-white">Productos regionales</h2>
+
+                <a
+                  href="#regionales"
+                  class="inline-flex items-center justify-center rounded-full bg-white/95 p-3 text-gray-900 shadow hover:bg-white"
+                  aria-label="Ver productos regionales"
+                >
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+
+              <p class="mt-2 text-white/85 text-sm">Quesos, miel, mojos y más</p>
+            </div>
+          </article>
+        </div>
+      </section>
 
 
 
