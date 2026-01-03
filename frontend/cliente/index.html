@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raíces — Tienda</title>
+    <!--Estilos generales-->
+    <link rel="stylesheet" href="frontend/cliente/assets/css/app.css">
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"/>
+  </head>
+
+  <body class="bg-white text-gray-900">
+
+    <!-- NAVBAR -->
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur border-b border-gray-200">
+      <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <!-- Izquierda: icono menu Panalla mediana /pequeña (logo + texto) -->
+         <button
+            data-drawer-target="drawer-menu"
+            data-drawer-show="drawer-menu"
+            aria-controls="drawer-menu"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+          </button>
+
+          <!--(logo + texto)-->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png."
+            alt="Logo Raíces"
+            class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
+          />
+          <div class="leading-tight">
+            <p class="text-xl sm:text-2xl font-extrabold text-brand group-hover:opacity-90">
+              Raíces
+            </p>
+            <p class="text-sm sm:text-base font-medium text-brand/90">
+              Conectando tierra y vida.
+            </p>
+          </div>
+        </a>
+
+        <!-- Centro: Links (solo para pantallas grandes) -->
+        <div class="hidden lg:flex items-center gap-8">
+        
+          <a href="/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+        </div>
+
+        <!-- Derecha: Login  -->
+        <div class="flex items-center gap-3">
+          <!-- Boton Login  siempre visible -->
+          <button
+              type="button"
+              data-modal-target="loginModal"
+              data-modal-toggle="loginModal"
+              class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
+            >
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 12H3m0 0 3-3m-3 3 3 3"/>
+            </svg>
+            Iniciar Sesión
+          </button>
+
+        </div>
+      </nav>
+    </header>
+
+
+
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+  </body>
+</html>
