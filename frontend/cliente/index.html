@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raíces — Tienda</title>
     <!--Estilos generales-->
-    <link rel="stylesheet" href="frontend/cliente/assets/css/app.css">
+    <link rel="stylesheet" href="http://localhost/Raices/frontend/cliente/assets/css/app.css">
     <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite -->
@@ -78,6 +78,39 @@
         </div>
       </nav>
     </header>
+
+    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    
+    <div
+      id="drawer-menu"
+      class="fixed top-0 left-0 z-50 h-screen w-80 -translate-x-full bg-white p-6 shadow-xl transition-transform"
+      tabindex="-1"
+      aria-labelledby="drawer-label"
+    >
+        <div class="flex items-center justify-between mb-6">
+          <p id="drawer-label" class="text-lg font-semibold">Menú</p>
+          <button
+            type="button"
+            data-drawer-hide="drawer-menu"
+            aria-controls="drawer-menu"
+            class="rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Cerrar menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="/quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="/nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="/faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="/contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+        </nav>
+    </div>
+
 
 
 

@@ -1,0 +1,15 @@
+:root {
+  --brand-green: #5B7B2F;
+}
+
+.text-brand {
+  color: var(--brand-green);
+}
+
+.bg-brand {
+  background-color: var(--brand-green);
+}
+
+.ring-brand {
+  --tw-ring-color: var(--brand-green);
+}
