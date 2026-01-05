@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raíces — Tienda</title>
+    <!--Estilos generales-->
+    <link rel="stylesheet" href="http://localhost/Raices/frontend/cliente/assets/css/app.css">
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"/>
+  </head>
+
+  <body class="bg-white text-gray-900">
+
+    <!-- NAVBAR -->
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur border-b border-gray-200">
+      <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <!-- Izquierda: icono menu Panalla mediana /pequeña (logo + texto) -->
+         <button
+            data-drawer-target="drawer-menu"
+            data-drawer-show="drawer-menu"
+            aria-controls="drawer-menu"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+          </button>
+
+          <!--(logo + texto)-->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png."
+            alt="Logo Raíces"
+            class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
+          />
+          <div class="leading-tight">
+            <p class="text-xl sm:text-2xl font-extrabold text-brand group-hover:opacity-90">
+              Raíces
+            </p>
+            <p class="text-sm sm:text-base font-medium text-brand/90">
+              Conectando tierra y vida.
+            </p>
+          </div>
+        </a>
+
+        <!-- Centro: Links (solo para pantallas grandes) -->
+        <div class="hidden lg:flex items-center gap-8">
+        
+          <a href="index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/Raices/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/Raices/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+        </div>
+
+        <!-- Derecha: Login  -->
+        <div class="flex items-center gap-3">
+          <!-- Boton Login  siempre visible -->
+          <button
+              type="button"
+              data-modal-target="loginModal"
+              data-modal-toggle="loginModal"
+              class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
+            >
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 12H3m0 0 3-3m-3 3 3 3"/>
+            </svg>
+            Iniciar Sesión
+          </button>
+
+        </div>
+      </nav>
+    </header>
+
+    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    
+    <div
+      id="drawer-menu"
+      class="fixed top-0 left-0 z-50 h-screen w-80 -translate-x-full bg-white p-6 shadow-xl transition-transform"
+      tabindex="-1"
+      aria-labelledby="drawer-label"
+    >
+        <div class="flex items-center justify-between mb-6">
+          <p id="drawer-label" class="text-lg font-semibold">Menú</p>
+          <button
+            type="button"
+            data-drawer-hide="drawer-menu"
+            aria-controls="drawer-menu"
+            class="rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Cerrar menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+        </nav>
+    </div>
+
+    <!---- Main ------>
+      
+      <main class="mx-auto max-w-6xl px-4 py-12">
+
+        <!-- Titulo -->
+        <header class="text-center">
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Contáctanos</h1>
+          <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+            ¿Tienes alguna pregunta o sugerencia? Estamos aquí para ayudarte.
+          </p>
+        </header>
+
+       <!-- Contenido -->
+       <section class="min-h-screen grid place-items-center">
+
+
+       <!-- INFO CARD -->
+       <div >
+         <div class="rounded-2xl bg-white ">
+           <h2 class="text-2xl font-extrabold text-center text-brand">Información de contacto</h2>
+           <p class="mt-2 text-gray-600 max-w-xl text-center">
+            Puedes contactarnos a través de cualquiera de estos medios. Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00h.
+           </p>
+
+           <div class="mt-6 space-y-4">
+
+              <!-- Email -->
+              <div class="rounded-2xl border border-gray-200  p-5 shadow-sm flex gap-4 items-center bg-[#EAF2E3]/60">
+                <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+                  <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      d="M4 7h16v10H4z" />
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      d="m4 7 8 6 8-6" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Email</p>
+                  <p class="font-semibold text-gray-900">info@raices.com</p>
+                </div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="rounded-2xl border border-gray-200  p-5 shadow-sm flex gap-4 items-center bg-[#EAF2E3]/60">
+                <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+                  <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      d="M6.5 3h3L11 8l-2 2c1.5 3 4 5.5 7 7l2-2 5 1.5v3C23 21 21 22 19 22 10 22 2 14 2 5 2 3 3 1 5 1h3z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Teléfono</p>
+                  <p class="font-semibold text-gray-900">+34 922 123 456</p>
+                </div>
+              </div>
+
+              <!-- WhatsApp -->
+              <div class="rounded-2xl border border-gray-200  p-5 shadow-sm flex gap-4 items-center bg-[#EAF2E3]/60">
+                <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+                  <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      d="M21 12a8.5 8.5 0 0 1-12.6 7.5L3 21l1.7-5.1A8.5 8.5 0 1 1 21 12Z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">WhatsApp</p>
+                  <p class="font-semibold text-gray-900">+34 612 345 678</p>
+                </div>
+              </div>
+
+              <!-- Dirección -->
+              <div class="rounded-2xl border border-gray-200  p-5 shadow-sm flex gap-4 items-center bg-[#EAF2E3]/60">
+                <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+                  <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10Z"/>
+                    <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      d="M12 11.5a2 2 0 1 0 0-.01"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-500">Dirección</p>
+                  <p class="font-semibold text-gray-900">Capellanía de Rosa Blanca, La Oliva</p>
+                </div>
+              </div>
+
+              <!-- Tip -->
+              <div class="rounded-2xl border border-gray-200 bg-brand-soft p-5 bg-[#EAF2E3]/60" >
+                <p class="text-sm text-gray-700">
+                  💡 <span class="font-semibold">Tip:</span> Para consultas urgentes, escríbenos por WhatsApp. Respondemos más rápido.
+                </p>
+              </div>
+
+            </div>
+        </div>
+      </div>
+
+    </section>
+
+    
+  </main>
+    
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+  </body>
+</html>
