@@ -35,7 +35,7 @@
           <!--(logo + texto)-->
         <a href="index.html" class="flex items-center gap-3 group">
           <img
-            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png."
+            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png"
             alt="Logo Raíces"
             class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
           />
@@ -55,7 +55,7 @@
           <a href="index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
           <a href="quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
           <a href="nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
-          <a href="aqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
           <a href="contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
         </div>
 
@@ -223,9 +223,33 @@
         </div>
       </section>
 
+       <!-- Lista de productos BD -->
+        <section id="verduras" class="mt-14">
+          <h3 class="text-xl font-bold">Verduras</h3>
+          <p class="mt-2 text-gray-600">Aquí se mostrara  Verduras.</p>
+        </section>
+        <section id="frutas" class="mt-10">
+          <h3 class="text-xl font-bold">Frutas</h3>
+          <p class="mt-2 text-gray-600">Aquí se mostrara Frutas.</p>
+        </section>
+        <section id="regionales" class="mt-10">
+          <h3 class="text-xl font-bold">Productos regionales</h3>
+          <p class="mt-2 text-gray-600">Aquí se mostrara  regionales.</p>
+        </section>
 
 
     </main>
+
+    <!--Footer-->
+
+    <footer class="border-t border-gray-200 py-6">
+      <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-500">© <span id="year"></span> Raíces. Todos los derechos reservados.</p>
+        <p class="text-sm text-gray-500">KM0 · Productos frescos de las islas</p>
+      </div>
+      <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    </footer>
+
     <!-- Flowbite JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
   </body>
