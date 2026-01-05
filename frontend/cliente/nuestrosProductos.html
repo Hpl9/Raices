@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raíces — Tienda</title>
+    <!--Estilos generales-->
+    <link rel="stylesheet" href="http://localhost/Raices/frontend/cliente/assets/css/app.css">
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"/>
+  </head>
+
+  <body class="bg-white text-gray-900">
+
+    <!-- NAVBAR -->
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur border-b border-gray-200">
+      <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <!-- Izquierda: icono menu Panalla mediana /pequeña (logo + texto) -->
+         <button
+            data-drawer-target="drawer-menu"
+            data-drawer-show="drawer-menu"
+            aria-controls="drawer-menu"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+          </button>
+
+          <!--(logo + texto)-->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png."
+            alt="Logo Raíces"
+            class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
+          />
+          <div class="leading-tight">
+            <p class="text-xl sm:text-2xl font-extrabold text-brand group-hover:opacity-90">
+              Raíces
+            </p>
+            <p class="text-sm sm:text-base font-medium text-brand/90">
+              Conectando tierra y vida.
+            </p>
+          </div>
+        </a>
+
+        <!-- Centro: Links (solo para pantallas grandes) -->
+        <div class="hidden lg:flex items-center gap-8">
+        
+          <a href="index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/Raices/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/Raices/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+        </div>
+
+        <!-- Derecha: Login  -->
+        <div class="flex items-center gap-3">
+          <!-- Boton Login  siempre visible -->
+          <button
+              type="button"
+              data-modal-target="loginModal"
+              data-modal-toggle="loginModal"
+              class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
+            >
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 12H3m0 0 3-3m-3 3 3 3"/>
+            </svg>
+            Iniciar Sesión
+          </button>
+
+        </div>
+      </nav>
+    </header>
+
+    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    
+    <div
+      id="drawer-menu"
+      class="fixed top-0 left-0 z-50 h-screen w-80 -translate-x-full bg-white p-6 shadow-xl transition-transform"
+      tabindex="-1"
+      aria-labelledby="drawer-label"
+    >
+        <div class="flex items-center justify-between mb-6">
+          <p id="drawer-label" class="text-lg font-semibold">Menú</p>
+          <button
+            type="button"
+            data-drawer-hide="drawer-menu"
+            aria-controls="drawer-menu"
+            class="rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Cerrar menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+        </nav>
+    </div>
+
+     <!---- Main ------>
+    <!-- Main -->
+    <main class="mx-auto max-w-6xl px-4 py-12">
+
+    <!-- Header -->
+    <header class="text-center">
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Nuestros Productos</h1>
+      <p class="mt-3 text-gray-600 max-w-3xl mx-auto">
+        Trabajamos con productos de proximidad que respetan el medio ambiente y apoyan el desarrollo
+        sostenible de nuestras islas.
+      </p>
+    </header>
+
+    <!-- Seccion Cards -->
+    <section class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card -->
+      <article class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <div class="h-1 bg-brand"></div>
+        <div class="p-6">
+          <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+            <!-- leaf icon -->
+            <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M21 3c-7.5 1-13 6.5-14 14 7.5-1 13-6.5 14-14Z"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M7 17c-1.5 0-3-.5-4-1.5"/>
+            </svg>
+          </div>
+
+          <h2 class="mt-4 text-lg font-bold">KM0</h2>
+          <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+            Productos cultivados en las islas, sin largos transportes. Frescura garantizada desde el campo a tu mesa.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card -->
+      <article class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <div class="h-1 bg-brand"></div>
+        <div class="p-6">
+          <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+            <!-- recycle icon -->
+            <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M7 19h10l-1.5 2M7 19l1.5 2M7 19l2-4m8 4-2-4m-8-2 2-4h6l2 4M10 5 8.5 3M10 5 8.5 7M14 5l1.5-2M14 5l1.5 2"/>
+            </svg>
+          </div>
+
+          <h2 class="mt-4 text-lg font-bold">Sostenible</h2>
+          <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+            Reducimos la huella de carbono eliminando intermediarios y largas cadenas de distribución.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card -->
+      <article class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <div class="h-1 bg-brand"></div>
+        <div class="p-6">
+          <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+            <!-- store icon -->
+            <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M4 10V8l2-4h12l2 4v2"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M6 10v10h12V10"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M9 20v-6h6v6"/>
+            </svg>
+          </div>
+
+          <h2 class="mt-4 text-lg font-bold">Comercio Local</h2>
+          <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+            Apoyamos a las familias agricultoras canarias, fortaleciendo nuestra economía local.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card -->
+      <article class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+        <div class="h-1 bg-brand"></div>
+        <div class="p-6">
+          <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+            <!-- truck icon -->
+            <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M3 7h12v10H3z"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M15 10h4l2 3v4h-6z"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M7 19a2 2 0 1 0 0 .01M17 19a2 2 0 1 0 0 .01"/>
+            </svg>
+          </div>
+
+          <h2 class="mt-4 text-lg font-bold">Sin Cámaras Frigoríficas</h2>
+          <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+            Nuestros productos no pasan semanas en cámaras de congelación. Siempre frescos y naturales.
+          </p>
+        </div>
+      </article>
+
+      <!-- Card de comercio justo -->
+      <article class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden md:col-start-2">
+        <div class="h-1 bg-brand"></div>
+        <div class="p-6">
+          <div class="h-12 w-12 rounded-2xl bg-brand-soft grid place-items-center border border-[#5B7B2F]/20">
+            <!-- heart icon -->
+            <svg class="w-6 h-6 text-brand" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M12 21s-7-4.6-9.5-8.7C.4 8.6 2.7 5.5 6.2 6c1.4.2 2.6 1.1 3.3 2.2.7-1.1 1.9-2 3.3-2.2 3.5-.5 5.8 2.6 3.7 6.3C19 16.4 12 21 12 21Z"/>
+            </svg>
+          </div>
+
+          <h2 class="mt-4 text-lg font-bold">Comercio Justo</h2>
+          <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+            Garantizamos precios justos para los productores y productos de calidad para los consumidores.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    
+    <section class="mt-12">
+      <div class="rounded-2xl border border-[#5B7B2F]/20 bg-gradient-to-r from-[#EAF2E3] to-white p-8 text-center">
+        <h3 class="text-lg font-extrabold">¿Por qué Raíces?</h3>
+        <p class="mt-3 text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Cada vez que eliges productos locales de km0, reduces las emisiones de CO₂, apoyas a las familias agricultoras
+          de tu comunidad y disfrutas de alimentos más frescos y nutritivos. ¡Juntos construimos un futuro más sostenible!
+        </p>
+      </div>
+    </section>
+
+  </main>
+    
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+  </body>
+</html>
