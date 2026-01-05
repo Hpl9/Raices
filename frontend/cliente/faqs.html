@@ -341,6 +341,16 @@
 
         </main>
 
+        <!--Footer-->
+
+    <footer class="border-t border-gray-200 py-6">
+      <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-500">© <span id="year"></span> Raíces. Todos los derechos reservados.</p>
+        <p class="text-sm text-gray-500">KM0 · Productos frescos de las islas</p>
+      </div>
+      <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+    </footer>
+
     <!-- Flowbite JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
   </body>
