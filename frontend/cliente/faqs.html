@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raíces — Tienda</title>
+    <!--Estilos generales-->
+    <link rel="stylesheet" href="http://localhost/Raices/frontend/cliente/assets/css/app.css">
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"/>
+  </head>
+
+  <body class="bg-white text-gray-900">
+
+    <!-- NAVBAR -->
+
+    <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur border-b border-gray-200">
+      <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <!-- Izquierda: icono menu Panalla mediana /pequeña (logo + texto) -->
+         <button
+            data-drawer-target="drawer-menu"
+            data-drawer-show="drawer-menu"
+            aria-controls="drawer-menu"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+            </svg>
+          </button>
+
+          <!--(logo + texto)-->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img
+            src="http://localhost/Raices/frontend/cliente/assets/img/logo.png."
+            alt="Logo Raíces"
+            class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
+          />
+          <div class="leading-tight">
+            <p class="text-xl sm:text-2xl font-extrabold text-brand group-hover:opacity-90">
+              Raíces
+            </p>
+            <p class="text-sm sm:text-base font-medium text-brand/90">
+              Conectando tierra y vida.
+            </p>
+          </div>
+        </a>
+
+        <!-- Centro: Links (solo para pantallas grandes) -->
+        <div class="hidden lg:flex items-center gap-8">
+        
+          <a href="index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/Raices/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/Raices/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+        </div>
+
+        <!-- Derecha: Login  -->
+        <div class="flex items-center gap-3">
+          <!-- Boton Login  siempre visible -->
+          <button
+              type="button"
+              data-modal-target="loginModal"
+              data-modal-toggle="loginModal"
+              class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
+            >
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 12H3m0 0 3-3m-3 3 3 3"/>
+            </svg>
+            Iniciar Sesión
+          </button>
+
+        </div>
+      </nav>
+    </header>
+
+    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    
+    <div
+      id="drawer-menu"
+      class="fixed top-0 left-0 z-50 h-screen w-80 -translate-x-full bg-white p-6 shadow-xl transition-transform"
+      tabindex="-1"
+      aria-labelledby="drawer-label"
+    >
+        <div class="flex items-center justify-between mb-6">
+          <p id="drawer-label" class="text-lg font-semibold">Menú</p>
+          <button
+            type="button"
+            data-drawer-hide="drawer-menu"
+            aria-controls="drawer-menu"
+            class="rounded-xl p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          >
+            <span class="sr-only">Cerrar menú</span>
+            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M6 6l12 12M18 6 6 18"/>
+            </svg>
+          </button>
+        </div>
+
+        <nav class="space-y-2">
+          <a href="index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+        </nav>
+     </div>
+
+     <!-- Main -->
+   
+     <main class="mx-auto max-w-6xl px-4 py-12">
+
+            <!-- titulo -->
+            <header class="text-center">
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+                Preguntas Frecuentes
+                </h1>
+                <p class="mt-3 text-gray-600 max-w-2xl mx-auto">
+                Encuentra respuestas a las dudas más comunes sobre nuestros productos y servicios
+                </p>
+            </header>
+
+            <!-- FAQ acordeon -->
+            <section class="mt-12 max-w-4xl mx-auto">
+                <div id="accordion-collapse" data-accordion="collapse" class="space-y-4">
+
+                <!-- faq-1 -->
+                <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <h2>
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between p-5 text-left
+                            font-bold text-gray-900
+                            hover:bg-[#EAF2E3]/60
+                            aria-expanded:bg-[#EAF2E3]/60
+                            transition-colors"
+                        data-accordion-target="#faq-1"
+                        aria-expanded="true"
+                        aria-controls="faq-1"
+                    >
+                        <span class="flex items-center gap-2 text-gray-900">
+                        <span class="h-2 w-2 rounded-full bg-brand"></span>
+                        ¿Qué significa KM0?
+                        </span>
+
+                        <svg
+                        data-accordion-icon
+                        class="w-4 h-4 text-gray-900 rotate-180 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6"
+                        >
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    </h2>
+
+                    <div id="faq-1">
+                    <div class="px-5 pb-5 text-gray-700 leading-relaxed bg-white">
+                        KM0 significa que nuestros productos son de proximidad, cultivados en las Islas Canarias por productores
+                        locales. Esto garantiza frescura máxima, menor impacto ambiental y apoyo a la economía local.
+                    </div>
+                    </div>
+                </div>
+
+                <!-- faq-2-->
+                <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <h2>
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between p-5 text-left
+                            font-bold text-gray-900
+                            hover:bg-[#EAF2E3]/60
+                            aria-expanded:bg-[#EAF2E3]/60
+                            transition-colors"
+                        data-accordion-target="#faq-2"
+                        aria-expanded="false"
+                        aria-controls="faq-2"
+                    >
+                        <span class="flex items-center gap-2 text-gray-900">
+                        <span class="h-2 w-2 rounded-full bg-brand"></span>
+                        ¿Cómo funciona el envío?
+                        </span>
+
+                        <svg
+                        data-accordion-icon
+                        class="w-4 h-4 text-gray-900 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6"
+                        >
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    </h2>
+
+                    <div id="faq-2" class="hidden">
+                    <div class="px-5 pb-5 text-gray-700 leading-relaxed bg-white">
+                        Realizamos envíos a toda Fuerteventura. Los pedidos se recogen directamente de los productores y se entregan
+                        en 24–48 horas. También ofrecemos la opción de recogida en nuestro punto de distribución.
+                    </div>
+                    </div>
+                </div>
+
+                <!-- faq-3 -->
+                <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <h2>
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between p-5 text-left
+                            font-bold text-gray-900
+                            hover:bg-[#EAF2E3]/60
+                            aria-expanded:bg-[#EAF2E3]/60
+                            transition-colors"
+                        data-accordion-target="#faq-3"
+                        aria-expanded="false"
+                        aria-controls="faq-3"
+                    >
+                        <span class="flex items-center gap-2 text-gray-900">
+                        <span class="h-2 w-2 rounded-full bg-brand"></span>
+                        ¿Los productos son orgánicos?
+                        </span>
+
+                        <svg
+                        data-accordion-icon
+                        class="w-4 h-4 text-gray-900 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6"
+                        >
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    </h2>
+
+                    <div id="faq-3" class="hidden">
+                    <div class="px-5 pb-5 text-gray-700 leading-relaxed bg-white">
+                        Muchos de nuestros productos son orgánicos y todos son cultivados de forma sostenible.
+                        Cada producto indica claramente si cuenta con certificación orgánica.
+                    </div>
+                    </div>
+                </div>
+
+                <!-- faq-4 -->
+                <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <h2>
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between p-5 text-left
+                            font-bold text-gray-900
+                            hover:bg-[#EAF2E3]/60
+                            aria-expanded:bg-[#EAF2E3]/60
+                            transition-colors"
+                        data-accordion-target="#faq-4"
+                        aria-expanded="false"
+                        aria-controls="faq-4"
+                    >
+                        <span class="flex items-center gap-2 text-gray-900">
+                        <span class="h-2 w-2 rounded-full bg-brand"></span>
+                        ¿Puedo modificar mi pedido después de realizarlo?
+                        </span>
+
+                        <svg
+                        data-accordion-icon
+                        class="w-4 h-4 text-gray-900 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6"
+                        >
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5 5 1 1 5" />
+                        </svg>
+                    </button>
+                    </h2>
+
+                    <div id="faq-4" class="hidden">
+                    <div class="px-5 pb-5 text-gray-700 leading-relaxed bg-white">
+                        Puedes modificar o cancelar tu pedido dentro de las primeras 2 horas después de realizarlo.
+                        Contacta con nosotros lo antes posible a través del correo de contacto o por WhatsApp.
+                    </div>
+                    </div>
+                </div>
+
+                <!-- faq-5 -->
+                <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+                    <h2>
+                    <button
+                        type="button"
+                        class="group flex w-full items-center justify-between p-5 text-left
+                            font-bold text-gray-900
+                            hover:bg-[#EAF2E3]/60
+                            aria-expanded:bg-[#EAF2E3]/60
+                            transition-colors"
+                        data-accordion-target="#faq-5"
+                        aria-expanded="false"
+                        aria-controls="faq-5"
+                    >
+                    <span class="flex items-center gap-2 text-gray-900">
+                        <span class="h-2 w-2 rounded-full bg-brand"></span>
+                        ¿Cómo puedo formar parte de la cooperativa?
+                        </span>
+
+                        <svg
+                        data-accordion-icon
+                        class="w-4 h-4 text-gray-900 transition-transform duration-300"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 10 6"
+                        >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5 5 1 1 5"
+                        />
+                        </svg>
+                        </button>
+                        </h2>
+
+                        <div id="faq-5" class="hidden">
+                        <div class="px-5 pb-5 text-gray-700 leading-relaxed bg-white">
+                            Contacta con nosotros por correo y solicita una cita, explicándonos qué ofreces (producto, volumen, zona, disponibilidad).
+                            Nosotros te explicaremos el proceso para unirte y los siguientes pasos.
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                </div>
+            </section>
+
+        </main>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+  </body>
+</html>
