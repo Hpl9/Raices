@@ -1,5 +1,6 @@
 :root {
   --brand-green: #5B7B2F;
+   --brand-green-soft:#EAF2E3;
 }
 
 .text-brand {
@@ -13,3 +14,9 @@
 .ring-brand {
   --tw-ring-color: var(--brand-green);
 }
+
+
+.bg-brand-soft {
+   background-color: var(--brand-green-soft);
+}
+
