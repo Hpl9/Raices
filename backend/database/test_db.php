@@ -6,7 +6,7 @@ try {
     
     // 1. Preparamos la consulta (tabla usuarios)
     
-    $stmt = $pdo->query("SELECT id, nombre, correo FROM usuarios");
+    $stmt = $pdo->query("SELECT id, nombre, email FROM usuarios");
     $clientes = $stmt->fetchAll();
 
     echo "<h1>Lista de Clientes</h1>";
@@ -19,7 +19,7 @@ try {
             echo "<li>";
             echo "<strong>ID:</strong> " . htmlspecialchars($cliente['id']) . " - ";
             echo "<strong>Nombre:</strong> " . htmlspecialchars($cliente['nombre']) . " - ";
-            echo "<strong>Email:</strong> " . htmlspecialchars($cliente['correo']);
+            echo "<strong>Email:</strong> " . htmlspecialchars($cliente['email']);
             echo "</li>";
         }
         echo "</ul>";
