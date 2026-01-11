@@ -61,8 +61,8 @@
 
         <!-- Derecha: Login  -->
         <div class="flex items-center gap-3">
-          <!-- Boton Login  siempre visible -->
-          <button
+          <!--- Boton Login  (siempre visible si no hay sesion) -->
+          <button id="btn-login"
               type="button"
               data-modal-target="loginModal"
               data-modal-toggle="loginModal"
@@ -73,6 +73,20 @@
               <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M15 12H3m0 0 3-3m-3 3 3 3"/>
             </svg>
             Iniciar Sesión
+          </button>
+
+           <!----- Logout------>
+          <button id="btn-logout"
+            type="button"
+            class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
+          >
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                d="M15 12H3m0 0 3-3m-3 3 3 3"/>
+            </svg>
+            Salir
           </button>
 
         </div>
