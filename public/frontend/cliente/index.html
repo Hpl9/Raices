@@ -89,6 +89,31 @@
             Salir
           </button>
 
+          <!-- Carrito ( siempre visible) -->
+          <a id="btn-cart"
+            href="carrito.html"
+            class="inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100">
+            <!-- Icono carrito -->
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M6 6h15l-1.5 9h-12L6 6Zm0 0L5 3H2m6 18a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm11 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
+            </svg>
+          </a>
+
+          <!-- Perfil usuario (solo cuando hay sesión) -->
+          <a id="user-pill"
+            href="perfil.php"
+            class="hidden items-center gap-2 rounded-full bg-gray-100 px-3 py-2 hover:bg-gray-200">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white border border-gray-200">
+              <!-- Icono usuario -->
+              <svg class="w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
+              </svg>
+            </span>
+            <span id="user-name" class="text-sm font-semibold text-gray-800">Usuario</span>
+          </a>
+
         </div>
       </nav>
     </header>
@@ -341,6 +366,9 @@
       </div>
       <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     </footer>
+
+    <!-- auth.JS de autenticación -->
+    <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js"></script>
 
     <!-- Flowbite JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
