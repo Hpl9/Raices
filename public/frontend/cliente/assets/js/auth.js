@@ -125,12 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // -----------------------FUNCIONES-------------------------
  
-  //  Devuelve una Promise para poder encadenar (útil antes de redirigir)
+  //  Devuelve una Promesa para poder encadenar (útil antes de redirigir)
   function refreshNavbarSession() {
     return fetch(API_ME)
       .then((res) => res.json())
       .then((data) => {
-        // Tu me.php puede devolver:
+        //  me.php puede devolver:
         // - { ok:true, logged:true/false, user:{...} }
         // - { ok:true, user:{...} } (sin "logged")
         const logged =
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (btnLogout) btnLogout.classList.remove("hidden");
 
           // Mostrar perfil + nombre
-          if (userPill) userPill.classList.remove("hidden");                   // El operador '?.' (optional chaining) evita errores si 'user' no existe
+          if (userPill) userPill.classList.remove("hidden");                   // El operador '?.' (si no existe-> devuelve undefined) evita errores si 'user' no existe
           if (userName) userName.textContent = data.user?.name ?? "Usuario";   // El operador '??' pone "Usuario" por defecto si el nombre viene vacío
 
         } else {
