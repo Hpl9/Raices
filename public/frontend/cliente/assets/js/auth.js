@@ -2,7 +2,7 @@
 // Objetivo:
 // 1) Comprobar sesión (me.php) al cargar y actualizar navbar:
 //    - Mostrar "Iniciar sesión" si NO hay sesión
-//    - Mostrar "Salir" + "perfil (icono+nombre)" si SÍ hay sesión
+//    - Mostrar "Salir" + "perfil (icono+nombre)" si sí hay sesión
 // 2) Enviar login desde el modal (auth.php)
 // 3) Cerrar sesión (auth.php)
 // 4) Redirigir según rol:
@@ -10,7 +10,7 @@
 //    - cliente-> /Raices/public/cliente/index.html
 
 
-// Endpoints de tu API 
+// Endpoints  API 
 const API_ME = "/Raices/public/api/me.php";
 const API_AUTH = "/Raices/public/api/auth.php";
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Por defecto: ocultamos logout y user-pill hasta comprobar sesión
   if (btnLogout) btnLogout.classList.add("hidden");
   if (userPill) userPill.classList.add("hidden");
-
+  
   // Actualizamos navbar según sesión actual
   refreshNavbarSession();
 
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // -----------------------FUNCIONES-------------------------
  
-  //  Devuelve una Promesa para poder encadenar (útil antes de redirigir)
+  
   function refreshNavbarSession() {
     return fetch(API_ME)
       .then((res) => res.json())

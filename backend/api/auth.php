@@ -79,8 +79,8 @@ try {
         exit;
     }
 
-    // Punto decisivo: regenerar ID de sesión tras login
-    // Evita fijación/secuestro de sesión
+    // Punto decisivo: regenerar ID de sesión tras login. Evita fijación/secuestro de sesión
+
     session_regenerate_id(true);
 
     // Guardamos solo lo necesario (NUNCA password_hash)
