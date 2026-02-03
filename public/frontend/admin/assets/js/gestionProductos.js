@@ -1,4 +1,4 @@
-const API_PRODUCTOS = "/Raices/public/api/productos.php";
+const API_PRODUCTOS = "/Raices/public/api/gestionProductos.php";
 
 
 document.addEventListener("DOMContentLoaded", () => {
