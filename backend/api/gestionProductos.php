@@ -1,37 +1,31 @@
 <?php
-require_once __DIR__ . '/../database/conexion.php';
+
+
+require_once __DIR__ . '/../utils/session.php';
+require_once __DIR__ . '/../repositories/ProductoRepository.php';
+
+start_session();
+
 header('Content-Type: application/json; charset=utf-8');
 
 try {
-    $pdo = db();
 
-    // ✅ SOLO GET por ahora
+    //  GET (listar)
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         http_response_code(405);
         echo json_encode(['ok' => false, 'error' => 'Método no permitido'], JSON_UNESCAPED_UNICODE);
         exit;
     }
 
-$stmt = $pdo->query("
-    SELECT
-        p.id,
-        p.nombre,
-        p.categoria,
-        p.descripcion,
-        p.precio,
-        p.stock,
-        p.unidad_medida,
-        p.imagen_url,
-        p.procedencia,
-        p.usuario_id,
-        CONCAT(u.nombre, ' ', u.apellido) AS socio
-    FROM productos p
-    INNER JOIN usuarios u ON u.id = p.usuario_id
-    ORDER BY p.categoria, p.nombre
-");
+    //  Proteger: solo admin
+    if (!isset($_SESSION['user']) || ($_SESSION['user']['rol'] ?? '') !== 'admin') {
+        http_response_code(403);
+        echo json_encode(['ok' => false, 'error' => 'No autorizado'], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
 
-
-    $items = $stmt->fetchAll();
+    $repo = new ProductoRepository();
+    $items = $repo->findAllConSocio();  // Lista (viene del repo)
 
     echo json_encode([
         'ok' => true,
@@ -45,3 +39,4 @@ $stmt = $pdo->query("
         'error' => $e->getMessage()
     ], JSON_UNESCAPED_UNICODE);
 }
+
