@@ -114,8 +114,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.ok) {
-            // Tras logout, refrescamos navbar y nos quedamos en la página
+            // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda
             refreshNavbarSession();
+            window.location.replace("http://localhost/Raices/public/frontend/cliente/index.html");
           }
         })
         .catch(() => {});

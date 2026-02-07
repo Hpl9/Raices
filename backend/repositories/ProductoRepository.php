@@ -139,16 +139,15 @@ final class ProductoRepository
      
          //---------------- ELIMINAR -------------------------------------
   
-    public function delete(int $id, int $usuarioId): bool
-    {
-        $stmt = $this->pdo->prepare("
-            DELETE FROM productos
-            WHERE id = :id AND usuario_id = :usuario_id
-        ");
+    public function delete(int $id): bool
+{
+    $stmt = $this->pdo->prepare("
+        DELETE FROM productos
+        WHERE id = :id
+    ");
 
-        return $stmt->execute([
-            'id' => $id,
-            'usuario_id' => $usuarioId
-        ]);
-    }
+    return $stmt->execute([
+        'id' => $id
+    ]);
+}
 }

@@ -1,7 +1,7 @@
 const API_PRODUCTOS = "/Raices/public/api/gestionProductos.php";
 
-
-document.addEventListener("DOMContentLoaded", () => {
+//al cargar la pagina pedimos los productoss a la API
+document.addEventListener("DOMContentLoaded", () => {  
   cargarProductos();
 });
 
@@ -28,6 +28,7 @@ async function cargarProductos() {
       throw new Error(data.error || "No se pudo cargar el catálogo");
     }
 
+
     const items = Array.isArray(data.items) ? data.items : [];
     //contar productos y pintar
     const countEl = document.getElementById("productos-count");
@@ -46,7 +47,16 @@ async function cargarProductos() {
       return;
     }
 
+    //pintar filas de la tabla
     tbody.innerHTML = items.map(pintarFila).join("");
+
+    //activar botones de eliminar tras pintar
+    tbody.querySelectorAll("[data-del]").forEach(btn => {
+    btn.addEventListener("click", () => {
+    eliminarProducto(btn.dataset.del);
+       });
+       });
+    
 
   } catch (err) {
     tbody.innerHTML = `
@@ -57,8 +67,9 @@ async function cargarProductos() {
   }
 }
 
+// Generea una fila de producto (el html) que Recibe un objeto producto (JSON de la API)
 function pintarFila(p) {
-  const img = p.imagen_url || "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=200&auto=format&fit=crop";
+  const img = p.imagen_url || "https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible-1.jpg";
   const nombre = p.nombre ?? "Sin nombre";
   const categoria = p.categoria ?? "-";
   const socio = p.socio ?? "-";
@@ -94,6 +105,28 @@ function pintarFila(p) {
     </tr>
   `;
 }
+
+
+//eliminar un producto
+
+async function eliminarProducto(id) {
+  if (!confirm("¿Eliminar este producto?")) return;
+
+  const res = await fetch(`${API_PRODUCTOS}?id=${id}`, {
+    method: "DELETE",
+    headers: { "Accept": "application/json" }
+  });
+
+  const data = await res.json();
+
+  if (!res.ok || !data.ok) {
+    alert(data.error || "Error al eliminar");
+    return;
+  }
+
+  cargarProductos(); // refresca tabla
+}
+
 
 // helpers anti-XSS
 function escapeHtml(str) {

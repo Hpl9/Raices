@@ -44,17 +44,17 @@
       <!-- Derecha: usuario + panel + logout -->
       <div class="flex items-center gap-2 sm:gap-3">
         <!-- Usuario  -->
-        <div class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm">
+        <div id="user-pill" class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm">
           <svg class="w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
               d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
             <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
               d="M12 14c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
           </svg>
-          <span id="admin-name" class="font-semibold text-gray-800">Administrador</span>
+          <span id="user-name" class="font-semibold text-gray-800">Administrador</span>
         </div>
 
-        <!-- panel-->
+       <!-- panel
          <a
           href="admin.html"
           class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-200 transition"
@@ -65,7 +65,7 @@
           </svg>
           Panel Admin
         </a>
-      
+      -->
         <!-- Logout -->
         <button id="btn-logout"
           type="button"
@@ -145,12 +145,16 @@
       </div>
 
       <button
+        id="btn-add-product"
         type="button"
+        data-modal-target="productoModal"
+        data-modal-toggle="productoModal"
         class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white hover:opacity-95"
       >
         <span class="text-lg leading-none">＋</span>
         Añadir Producto
       </button>
+
     </section>
 
     <!------------------TABLA PRODUCTOS-------------------------->
@@ -181,8 +185,14 @@
 
   </main>
 
+ 
+
+
 
   <script src="/Raices/public/frontend/admin/assets/js/gestionProductos.js"></script>
+
+   <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+
 
 
 

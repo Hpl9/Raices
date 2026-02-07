@@ -10,12 +10,27 @@ header('Content-Type: application/json; charset=utf-8');
 
 try {
 
-    //  GET (listar)
+    // ------------------ GET------------ -------
     if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
         http_response_code(405);
         echo json_encode(['ok' => false, 'error' => 'Método no permitido'], JSON_UNESCAPED_UNICODE);
         exit;
     }
+
+   /*  // -------------------- DELETE ---------------
+    if ($method === 'DELETE') {
+        $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+        if ($id <= 0) {
+            http_response_code(400);
+            echo json_encode(['ok' => false, 'error' => 'Falta id'], JSON_UNESCAPED_UNICODE);
+            exit;
+        }
+
+        $ok = $repo->delete($id);
+        echo json_encode(['ok' => $ok], JSON_UNESCAPED_UNICODE);
+        exit;
+    }*/
 
     //  Proteger: solo admin
     if (!isset($_SESSION['user']) || ($_SESSION['user']['rol'] ?? '') !== 'admin') {
