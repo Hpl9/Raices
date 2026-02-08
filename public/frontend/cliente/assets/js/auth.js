@@ -15,7 +15,7 @@ const API_ME = "/Raices/public/api/me.php";
 const API_AUTH = "/Raices/public/api/auth.php";
 
 // Rutas destino tras login 
-const URL_ADMIN_DASHBOARD = "/Raices/public/frontend/admin/admin.html";
+const URL_ADMIN_DASHBOARD = "/Raices/public/frontend/admin/admin.php";
 const URL_CLIENTE_HOME = "/Raices/public/frontend/cliente/index.html";
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -1,3 +1,25 @@
+<?php
+// admin.php
+
+
+session_start();
+
+// 1) Si no hay sesión -> fuera
+if (empty($_SESSION['user'])) {
+  header('Location: /Raices/public/frontend/cliente/index.html');
+  exit;
+}
+
+// 2) Si no es admin -> fuera (ajusta el campo según cómo guardes el rol)
+$rol = $_SESSION['user']['rol'] ?? ($_SESSION['user']['role'] ?? null);
+if ($rol !== 'admin') {
+  header('Location: /Raices/public/frontend/cliente/index.html');
+  exit;
+}
+
+// 3) Datos para pintar en HTML
+$userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Administrador';
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -13,78 +35,15 @@
 
   <!-- Flowbite -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css"/>
-
-  
 </head>
 
 <body class="bg-white text-gray-900">
 
   <!---------------- NAVBAR ADMIN ------------------------->
 
-  <header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur border-b border-gray-200">
-    <nav class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-
-      <!-- Izquierda : logo -->
-      <div class="flex items-center gap-3">
-        <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="flex items-center gap-3 group">
-          <img
-            src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
-            alt="Logo Raíces"
-            class="h-11 w-11 rounded-2xl object-contain bg-white"
-          />
-          <div class="leading-tight">
-            <p class="text-lg sm:text-xl font-extrabold text-brand group-hover:opacity-90">Raíces</p>
-            <p class="text-xs sm:text-sm font-medium text-gray-500">
-              Panel de administración
-            </p>
-          </div>
-        </a>
-      </div>
-
-      <!-- Derecha: usuario + panel + logout -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Usuario  -->
-        <div id="user-pill" class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm">
-          <svg class="w-4 h-4 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M12 14c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/>
-          </svg>
-          <span id="user-name" class="font-semibold text-gray-800">Administrador</span>
-        </div>
-
-       <!-- panel
-         <a
-          href="admin.html"
-          class="inline-flex items-center gap-2 rounded-xl bg-gray-100 px-3 py-2 text-sm font-semibold text-gray-900 hover:bg-gray-200 transition"
-        >
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M10 3H4v6h6V3Zm10 0h-6v6h6V3ZM10 15H4v6h6v-6Zm10-6h-6v12h6V9Z"/>
-          </svg>
-          Panel Admin
-        </a>
-      -->
-        <!-- Logout -->
-        <button id="btn-logout"
-          type="button"
-          class="inline-flex items-center gap-2 rounded-xl bg-[#5B7B2F] px-4 py-2 text-sm font-semibold text-white hover:opacity-95 focus:outline-none focus:ring-2 ring-brand border-0"
-        >
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M10 7V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2v-1"/>
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M15 12H3m0 0 3-3m-3 3 3 3"/>
-          </svg>
-          Salir
-        </button>
-      </div>
-    </nav>
-  </header>
+   <?php require __DIR__ . '/components/navbar-admin.php'; ?>
 
   <!---------------------------- MAIN ---------------------->
-
   <main class="mx-auto max-w-6xl px-4 py-10">
 
     <!-- Titulo -->
@@ -94,8 +53,6 @@
         Gestiona productos, pedidos y visualiza estadísticas
       </p>
     </section>
-
-    <!--STATS-->
 
     <!-- TABS -->
     <section class="mt-8">
@@ -137,8 +94,8 @@
       </div>
     </section>
 
-    <!-- seccion header tabla + boton añadir producto -->
-    <section class="mt-8 flex items-end justify-between gap-4"> 
+    <!-- header tabla + botón añadir -->
+    <section class="mt-8 flex items-end justify-between gap-4">
       <div>
         <h2 class="text-2xl font-extrabold text-brand">Gestión de Productos</h2>
         <p id="productos-count" class="mt-1 text-sm text-gray-600">— productos en catálogo</p>
@@ -154,7 +111,6 @@
         <span class="text-lg leading-none">＋</span>
         Añadir Producto
       </button>
-
     </section>
 
     <!------------------TABLA PRODUCTOS-------------------------->
@@ -174,28 +130,19 @@
           </thead>
 
           <tbody id="adminProductosTbody" class="divide-y divide-gray-100">
-           
-           
-
-            <!-- aqui filas luego desde  API -->
+            <!-- filas desde API -->
           </tbody>
         </table>
       </div>
     </section>
 
   </main>
-
- 
+   
 
 
 
   <script src="/Raices/public/frontend/admin/assets/js/gestionProductos.js"></script>
-
-   <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
-
-
-
-
+  <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
 
   <!-- Flowbite JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
