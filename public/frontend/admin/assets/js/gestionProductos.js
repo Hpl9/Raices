@@ -18,8 +18,9 @@ async function cargarProductos() {
   try {
     const res = await fetch(API_PRODUCTOS, {
       method: "GET",
-      headers: { "Accept": "application/json" }
-      // de momento no ponemos credentials, porque aún no estamos protegiendo admin
+      headers: { "Accept": "application/json" },
+      credentials: "include"
+      
     });
 
     const data = await res.json();
@@ -114,7 +115,8 @@ async function eliminarProducto(id) {
 
   const res = await fetch(`${API_PRODUCTOS}?id=${id}`, {
     method: "DELETE",
-    headers: { "Accept": "application/json" }
+    headers: { "Accept": "application/json" },
+    credentials: "include"
   });
 
   const data = await res.json();

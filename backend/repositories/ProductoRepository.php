@@ -103,7 +103,7 @@ final class ProductoRepository
     }
 
   
-        //---------------- ACTUALIZAR ---------------------------
+        //---------------- ACTUALIZAR (solo los productos de ese usuario)---------------------------
     
     public function update(Producto $p): bool
     {
@@ -137,17 +137,21 @@ final class ProductoRepository
     }
 
      
-         //---------------- ELIMINAR -------------------------------------
+         //---------------- ELIMINAR (solo los productos de ese usuario)-------------------------------------
   
-    public function delete(int $id): bool
-{
-    $stmt = $this->pdo->prepare("
-        DELETE FROM productos
-        WHERE id = :id
-    ");
+    public function delete(int $id, int $usuarioId): bool
+    {
+        $stmt = $this->pdo->prepare("
+            DELETE FROM productos
+            WHERE id = :id
+            AND usuario_id = :usuario_id
+        ");
 
-    return $stmt->execute([
-        'id' => $id
-    ]);
-}
+        return $stmt->execute([
+            'id' => $id,
+            'usuario_id' => $usuarioId
+        ]);
+        return $stmt->rowCount() > 0; //solo devuelve ok- si al contar se ha eliminado
+    }
+
 }
