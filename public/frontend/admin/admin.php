@@ -102,16 +102,18 @@ $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Adminis
         <h2 class="text-2xl font-extrabold text-brand">Gestión de Productos</h2>
         <p id="productos-count" class="mt-1 text-sm text-gray-600">— productos en catálogo</p>
       </div>
-
+       
       <button
         id="btn-add-product"
         type="button"
         data-modal-target="productoModal"
-        data-modal-toggle="productoModal"
+        data-modal-toggle="productoModal" 
         class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white hover:opacity-95">
         <span class="text-lg leading-none">＋</span>
         Añadir Producto
-      </button>
+      </button> 
+
+      
     </section>
 
     <!------------------TABLA PRODUCTOS-------------------------->
@@ -144,12 +146,13 @@ $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Adminis
 
   <?php require __DIR__ . '/components/modal-producto.php'; ?>
 
+   <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
 
   <script src="/Raices/public/frontend/admin/assets/js/gestionProductos.js"></script>
   <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
 
-  <!-- Flowbite JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+ 
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 <?php
 // components/navbar.php
-// Espera que exista $userName en admin.php
+
 ?>
 
 <!-------------------- MODAL PRODUCTO (Crear / Editar)--------------------->
