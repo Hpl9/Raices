@@ -10,7 +10,7 @@ if (empty($_SESSION['user'])) {
   exit;
 }
 
-// 2) Si no es admin -> fuera (ajusta el campo según cómo guardes el rol)
+// 2) Si no es admin -> fuera 
 $rol = $_SESSION['user']['rol'] ?? ($_SESSION['user']['role'] ?? null);
 if ($rol !== 'admin') {
   header('Location: /Raices/public/frontend/cliente/index.html');
@@ -19,6 +19,8 @@ if ($rol !== 'admin') {
 
 // 3) Datos para pintar en HTML
 $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Administrador';
+
+$activeTab = 'productos';
 ?>
 
 <!doctype html>
@@ -27,7 +29,7 @@ $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Adminis
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raíces — Panel Admin</title>
+  <title>Raíces/GestiónProductos</title>
 
   <!-- Estilos generales  -->
   <link rel="stylesheet" href="http://localhost/Raices/public/frontend/cliente/assets/css/app.css" />
@@ -41,60 +43,16 @@ $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Adminis
 
 <body class="bg-white text-gray-900">
 
-  <!---------------- NAVBAR ADMIN ------------------------->
+  <!-------NAVBAR ADMIN -------->
 
   <?php require __DIR__ . '/components/navbar-admin.php'; ?>
 
   <!---------------------MAIN ----------------------------->
   <main class="mx-auto max-w-6xl px-4 py-10">
 
-    <!-- Titulo -->
-    <section>
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Panel de Administración</h1>
-      <p class="mt-2 text-gray-600">
-        Gestiona productos, pedidos y visualiza estadísticas
-      </p>
-    </section>
-
-    <!-- TABS -->
-    <section class="mt-8">
-      <div class="inline-flex rounded-2xl border border-gray-200 bg-white p-1 shadow-sm">
-        <button class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white">
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M21 8V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8" />
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M3 8l9-5 9 5" />
-          </svg>
-          Productos
-        </button>
-
-        <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M6 6h15l-2 9H7L6 6Z" />
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M6 6H4" />
-          </svg>
-          Pedidos
-        </button>
-
-        <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-          <span class="font-extrabold">€</span>
-          Finanzas
-        </button>
-
-        <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100">
-          <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
-            <path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              d="M12 14c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" />
-          </svg>
-          Clientes
-        </button>
-      </div>
-    </section>
+    <!----- Panel admin + tabs ------>
+    
+  <?php require __DIR__ . '/components/panel-tabs.php'; ?>
 
     <!-- header tabla + botón añadir -->
     <section class="mt-8 flex items-end justify-between gap-4">

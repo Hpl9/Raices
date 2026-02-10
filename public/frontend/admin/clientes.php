@@ -20,8 +20,7 @@ if ($rol !== 'admin') {
 // 3) Datos para pintar en HTML
 $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Administrador';
 
-$activeTab = 'finanzas'; 
-
+$activeTab = 'clientes';
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +28,8 @@ $activeTab = 'finanzas';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raíces/Finanzas</title>
+    <title>Raíces/Clientes</title>
+
     <!-- Estilos generales  -->
     <link rel="stylesheet" href="http://localhost/Raices/public/frontend/cliente/assets/css/app.css" />
 
