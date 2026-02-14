@@ -39,29 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
   refreshNavbarSession();
 
   
-// ABRIR carrito
-if (btnCarrito) {
-  btnCarrito.addEventListener("click", (e) => {
-    e.preventDefault();
+  // ABRIR carrito
+  if (btnCarrito) {
+    btnCarrito.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    const cartEl = document.getElementById("carrito-modal");
-    if (cartEl) {
-      cartEl.classList.remove("hidden");
-    }
-  });
-}
+      const cartEl = document.getElementById("carrito-modal");
+      if (cartEl) {
+        cartEl.classList.remove("hidden");
+      }
+    });
+  }
 
-// CERRAR carrito 
-const btnCerrarCarrito = document.querySelector('[data-modal-hide="carrito-modal"]');
+  // CERRAR carrito 
+  const btnCerrarCarrito = document.querySelector('[data-modal-hide="carrito-modal"]');
 
-if (btnCerrarCarrito) {
-  btnCerrarCarrito.addEventListener("click", () => {
-    const cartEl = document.getElementById("carrito-modal");
-    if (cartEl) {
-      cartEl.classList.add("hidden");
-    }
-  });
-}
+  if (btnCerrarCarrito) {
+    btnCerrarCarrito.addEventListener("click", () => {
+      const cartEl = document.getElementById("carrito-modal");
+      if (cartEl) {
+        cartEl.classList.add("hidden");
+      }
+    });
+  }
+
+  
 
 
   
@@ -222,4 +224,20 @@ if (btnCerrarCarrito) {
     const box = document.getElementById("loginError");
     if (box) box.remove();
   }
+
+  // ---------------- ENTREGA (pedido) ----------------
+
+    const radioRecogida = document.getElementById("entrega-recogida");
+    const radioEnvio = document.getElementById("entrega-envio");
+    const boxDireccion = document.getElementById("box-direccion");
+
+    function refreshEntregaUI() {
+      const envio = radioEnvio?.checked;
+      boxDireccion?.classList.toggle("hidden", !envio);
+    }
+
+    radioRecogida?.addEventListener("change", refreshEntregaUI);
+    radioEnvio?.addEventListener("change", refreshEntregaUI);
+    refreshEntregaUI();
+
 });

@@ -416,6 +416,52 @@
         </div>
 
         <!-- Resumen -->
+
+        <!-- Tipo de entrega -->
+        <div class="mt-4">
+
+          <p class="text-sm font-bold text-gray-700">Tipo de entrega</p>
+
+          <!-- Radios en la misma línea -->
+          <div class="mt-4 flex items-center gap-6 text-sm">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="tipo_entrega"
+                id="entrega-recogida"
+                value="recogida"
+                checked
+                class="h-4 w-4 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+              />
+              <span>Recogida en tienda ( Gratis )</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="tipo_entrega"
+                id="entrega-envio"
+                value="envio"
+                class="h-4 w-4 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+              />
+              <span>Envío 24h-48h ( Coste: 2,95 € )</span>
+            </label>
+          </div>
+
+          <!-- Dirección -->
+         <div id="box-direccion" class="mt-4 hidden">
+          <div class="w-full rounded-xl bg-[#EAF2E3]/60 px-4 py-3 text-sm text-gray-700">
+            <span class="font-semibold">Dirección de entrega:</span>
+            <span id="txt-direccion">
+              Se añadirá la direccion de envio registrada en el perfil.
+            </span>
+          </div>
+        </div>
+
+
+        </div>
+
+
         <div class="mt-6 rounded-2xl bg-[#EAF2E3]/60 border border-[#5B7B2F]/15 p-5">
 
           <div class="flex items-center justify-between">
@@ -425,7 +471,7 @@
 
           <button id="btn-checkout"
             class="mt-5 w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
-            Proceder al pago
+           Realizar pedido
           </button>
 
         </div>
