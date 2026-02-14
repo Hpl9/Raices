@@ -119,6 +119,8 @@ function crearCardProducto(p) {
 }
 
 
+
+
 function mostrarError(gridId) {
   const grid = document.getElementById(gridId);
   if (!grid) return;

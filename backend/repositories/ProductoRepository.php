@@ -1,8 +1,8 @@
 <?php
 
 
-require_once __DIR__ . '/../Database/conexion.php';
-require_once __DIR__ . '/../Entities/Producto.php';
+require_once __DIR__ . '/../database/conexion.php';
+require_once __DIR__ . '/../entities/producto.php';
 
 final class ProductoRepository
 {

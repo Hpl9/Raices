@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raíces — Tienda</title>
     <!--Estilos generales-->
-    <link rel="stylesheet" href="http://localhost/Raices/public/frontend/cliente/assets/css/app.css">
+    <link rel="stylesheet" href="/Raices/public/frontend/cliente/assets/css/app.css">
     <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite -->
@@ -35,7 +35,7 @@
           <!--(logo + texto)-->
         <a href="index.html" class="flex items-center gap-3 group">
           <img
-            src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
+            src="/Raices/public/frontend/cliente/assets/img/logo.png"
             alt="Logo Raíces"
             class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
           />
@@ -52,11 +52,11 @@
         <!-- Centro: Links (solo para pantallas grandes) -->
         <div class="hidden lg:flex items-center gap-8">
         
-          <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+          <a href="/Raices/public/frontend/cliente/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="/Raices/public/frontend/cliente/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="/Raices/public/frontend/cliente/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/Raices/public/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/Raices/public/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
         </div>
 
         <!-- Derecha: Login  -->
@@ -90,9 +90,10 @@
           </button>
 
           <!-- Carrito ( siempre visible) -->
-          <a id="btn-cart"
-            href="carrito.html"
-            class="inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100">
+          <a id="btn-carrito"
+            href="#"
+           
+            class="hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100">
             <!-- Icono carrito -->
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -142,11 +143,11 @@
         </div>
 
         <nav class="space-y-2">
-          <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+          <a href="/Raices/public/frontend/cliente/index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="/Raices/public/frontend/cliente/quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="/Raices/public/frontend/cliente/nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="/Raices/public/frontend/cliente/faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="/Raices/public/frontend/cliente/contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
         </nav>
     </div>
 
@@ -179,7 +180,7 @@
           <!-- Verduras -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente//assets/img/verduras.jpg"
+              src="/Raices/public/frontend/cliente//assets/img/verduras.jpg"
               alt="Verduras"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -207,7 +208,7 @@
           <!-- Frutas -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/fruta.jpg"
+              src="/Raices/public/frontend/cliente/assets/img/fruta.jpg"
               alt="Frutas"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -235,7 +236,7 @@
           <!-- Regionales -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/quesos.jpg"
+              src="/Raices/public/frontend/cliente/assets/img/quesos.jpg"
               alt="Productos regionales"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -325,7 +326,7 @@
           <!-- Logo + RAÍCES -->
          <div class="flex items-center justify-center gap-3 mb-4">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
+              src="/Raices/public/frontend/cliente/assets/img/logo.png"
               alt="Logo Raíces"
               class="h-12 w-12 rounded-2xl object-contain bg-white border border-gray-200"
             />
@@ -367,6 +368,79 @@
       </div>
     </div>
 
+    <!-- --------------------- MODAL CARRITO --------------------- -->
+<div id="carrito-modal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[#5B7B2F]/20 backdrop-blur-sm">
+
+  <div class="relative w-full max-w-2xl">
+    <div class="relative rounded-3xl bg-white shadow-xl border border-gray-200 overflow-hidden">
+
+      <!-- Header -->
+      <div class="flex items-start justify-between px-6 pt-6 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#EAF2E3] border border-[#5B7B2F]/20">
+            <!-- icono bolsa -->
+            <svg class="w-5 h-5 text-[#5B7B2F]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M6 8h12l-1 12H7L6 8Zm3-3a3 3 0 0 1 6 0v3H9V5Z"/>
+            </svg>
+          </span>
+
+          <div class="leading-tight">
+            <h3 class="text-xl font-extrabold text-gray-900">Tu Carrito</h3>
+            <p id="cart-count" class="text-sm text-gray-500">0 productos</p>
+          </div>
+        </div>
+
+        <button data-modal-hide="carrito-modal"
+          class="rounded-xl p-2 text-gray-500 hover:bg-gray-100">
+          <span class="sr-only">Cerrar</span> ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 pt-5 pb-6">
+
+        <!-- Lista (scroll interno) -->
+        <div id="cart-list"
+          class="max-h-[360px] overflow-y-auto pr-2 space-y-4">
+          <!-- Estado vacío (por defecto) -->
+          <div id="cart-empty"
+            class="rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center">
+            <p class="text-sm text-gray-600">Tu carrito está vacío.</p>
+            <p class="mt-1 text-xs text-gray-500">Añade productos desde la tienda.</p>
+          </div>
+
+          <!-- pintar aqui productos -->
+        
+        </div>
+
+        <!-- Resumen -->
+        <div class="mt-6 rounded-2xl bg-[#EAF2E3]/60 border border-[#5B7B2F]/15 p-5">
+
+          <div class="flex items-center justify-between">
+            <span class="text-base font-semibold text-gray-700">Total</span>
+            <span id="cart-total" class="text-2xl font-extrabold text-gray-900">0,00 €</span>
+          </div>
+
+          <button id="btn-checkout"
+            class="mt-5 w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+            Proceder al pago
+          </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
     <!----------------------Footer---------------------->
 
     <footer class="border-t border-gray-200 py-6">
@@ -377,15 +451,18 @@
       <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     </footer>
 
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+
     <!-- auth.JS de autenticación -->
-    <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js"></script>
+    <script src="/Raices/public/frontend/cliente/assets/js/auth.js"></script>
 
     <!-- tienda.JS de Muestra los productos de base de datos -->
     <script src="/Raices/public/frontend/cliente/assets/js/tienda.js?v=1"></script>
 
 
 
-    <!-- Flowbite JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+    
   </body>
 </html>

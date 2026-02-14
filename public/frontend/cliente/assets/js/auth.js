@@ -26,16 +26,43 @@ document.addEventListener("DOMContentLoaded", () => {
   // (icono + nombre) -> aparece solo con sesión
   const userPill = document.getElementById("user-pill");
   const userName = document.getElementById("user-name");
-
+  const btnCarrito = document.getElementById("btn-carrito");
   // Form de login en el modal
   const loginForm = document.getElementById("loginForm");
   
   // Por defecto: ocultamos logout y user-pill hasta comprobar sesión
   if (btnLogout) btnLogout.classList.add("hidden");
   if (userPill) userPill.classList.add("hidden");
-  
+  if (btnCarrito) btnCarrito.classList.add("hidden");
+
   // Actualizamos navbar según sesión actual
   refreshNavbarSession();
+
+  
+// ABRIR carrito
+if (btnCarrito) {
+  btnCarrito.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const cartEl = document.getElementById("carrito-modal");
+    if (cartEl) {
+      cartEl.classList.remove("hidden");
+    }
+  });
+}
+
+// CERRAR carrito 
+const btnCerrarCarrito = document.querySelector('[data-modal-hide="carrito-modal"]');
+
+if (btnCerrarCarrito) {
+  btnCerrarCarrito.addEventListener("click", () => {
+    const cartEl = document.getElementById("carrito-modal");
+    if (cartEl) {
+      cartEl.classList.add("hidden");
+    }
+  });
+}
+
 
   
   //------------------ LOGIN (submit del modal) REDIRECCIÓN URL----------------------
@@ -116,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (data.ok) {
             // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda
             refreshNavbarSession();
-            window.location.replace("http://localhost/Raices/public/frontend/cliente/index.html");
+            window.location.replace("/Raices/public/frontend/cliente/index.html");
           }
         })
         .catch(() => {});
@@ -128,12 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
  
   
   function refreshNavbarSession() {
-    return fetch(API_ME)
+    return fetch(API_ME, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => {
-        //  me.php puede devolver:
-        // - { ok:true, logged:true/false, user:{...} }
-        // - { ok:true, user:{...} } (sin "logged")
+       
         const logged =
           typeof data.logged === "boolean" ? data.logged : Boolean(data.user);
 
@@ -144,9 +169,11 @@ document.addEventListener("DOMContentLoaded", () => {
           //  Mostrar logout
           if (btnLogout) btnLogout.classList.remove("hidden");
 
-          // Mostrar perfil + nombre
+          // Mostrar perfil + nombre + carrito
           if (userPill) userPill.classList.remove("hidden");                   // El operador '?.' (si no existe-> devuelve undefined) evita errores si 'user' no existe
           if (userName) userName.textContent = data.user?.name ?? "Usuario";   // El operador '??' pone "Usuario" por defecto si el nombre viene vacío
+          if (btnCarrito) btnCarrito.classList.remove("hidden");
+
 
         } else {
           // Mostrar botón login
@@ -157,12 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
           //  Ocultar perfil
           if (userPill) userPill.classList.add("hidden");
+
+          //  Ocultar carrito
+          if (btnCarrito) btnCarrito.classList.add("hidden");
+
         }
       })
       .catch(() => {
         if (btnLogin) btnLogin.style.display = "inline-flex";
         if (btnLogout) btnLogout.classList.add("hidden");
         if (userPill) userPill.classList.add("hidden");
+        if (btnCarrito) btnCarrito.classList.add("hidden");
       });
   }
 
