@@ -9,6 +9,9 @@
 
 // Endpoint público del catálogo
 const API_TIENDA = "/Raices/public/api/tienda.php";
+let CATALOGO_BY_ID = new Map();
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarCatalogo();
@@ -20,7 +23,7 @@ function cargarCatalogo() {
     .then((data) => {
       if (!data.ok) throw new Error("Error cargando productos");
 
-      //  Categorías  BD 
+      CATALOGO_BY_ID = new Map(data.items.map(p => [String(p.id), p]));
       const verduras = data.items.filter(p => p.categoria === "verdura");
       const frutas = data.items.filter(p => p.categoria === "fruta");
       const regionales = data.items.filter(p => p.categoria === "regional");
@@ -28,17 +31,6 @@ function cargarCatalogo() {
       pintarGrid("grid-verduras", verduras);
       pintarGrid("grid-frutas", frutas);
       pintarGrid("grid-regionales", regionales);
-
-      //  Preparar botone "Añadir"
-      document.querySelectorAll("[data-add-to-cart]").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const id = btn.dataset.id;
-          console.log("Añadir al carrito -> producto id:", id);
-
-          //  Próximo paso: guardar en localStorage
-          // addToCart(id);
-        });
-      });
     })
     .catch((err) => {
       console.error(err);
@@ -47,6 +39,7 @@ function cargarCatalogo() {
       mostrarError("grid-regionales");
     });
 }
+
 
 function pintarGrid(gridId, productos) {
   const grid = document.getElementById(gridId);
@@ -106,7 +99,10 @@ function crearCardProducto(p) {
           type="button"
           data-add-to-cart
           data-id="${p.id}"
-          class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-95"
+          class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:opacity-95 active:bg-green-600
+         active:text-white
+         active:scale-95
+         transition-all duration-150"
         >
           +
           Añadir
@@ -117,6 +113,30 @@ function crearCardProducto(p) {
 
   return card;
 }
+
+
+//---------- AÑADIR PRODUCTO AL CARRITO--------------
+
+
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-add-to-cart]");
+  if (!btn) return;
+
+  const id = String(btn.dataset.id || "");
+  const product = CATALOGO_BY_ID.get(id);
+  if (!product) return;
+
+  // obligar login para añadir:
+  if (window.Auth?.isLogged?.() === false) {
+    sessionStorage.setItem("raices_pending_add", JSON.stringify(product));
+    window.Auth?.openLoginModal?.();
+    return;
+  }
+
+  window.Cart?.addToCart(product);
+  
+});
+
 
 
 
@@ -136,3 +156,4 @@ function escapeHtml(text) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+

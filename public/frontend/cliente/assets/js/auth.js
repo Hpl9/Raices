@@ -1,11 +1,11 @@
 
 // Objetivo:
-// 1) Comprobar sesión (me.php) al cargar y actualizar navbar:
+//  Comprobar sesión (me.php) al cargar y actualizar navbar:
 //    - Mostrar "Iniciar sesión" si NO hay sesión
 //    - Mostrar "Salir" + "perfil (icono+nombre)" si sí hay sesión
-// 2) Enviar login desde el modal (auth.php)
-// 3) Cerrar sesión (auth.php)
-// 4) Redirigir según rol:
+//  Enviar login desde el modal (auth.php)
+//  Cerrar sesión (auth.php)
+//  Redirigir según rol:
 //    - admin  -> /Raices/public/admin/admin.php
 //    - cliente-> /Raices/public/cliente/index.html
 
@@ -38,6 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Actualizamos navbar según sesión actual
   refreshNavbarSession();
 
+  window.Auth = {
+  isLogged: () => Boolean(window.__RAICES_AUTH__?.logged),
+  openLoginModal: () => { btnLogin?.click(); },
+  getUser: () => window.__RAICES_AUTH__?.user ?? null,
+};
+
   
   // ABRIR carrito
   if (btnCarrito) {
@@ -48,6 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (cartEl) {
         cartEl.classList.remove("hidden");
       }
+      window.Cart?.render?.();
+
     });
   }
 
@@ -60,6 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (cartEl) {
         cartEl.classList.add("hidden");
       }
+      
+
     });
   }
 
@@ -143,7 +153,8 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.ok) {
-            // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda
+            // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda (borra carrito tambien)
+            window.Cart?.clearCart?.();
             refreshNavbarSession();
             window.location.replace("/Raices/public/frontend/cliente/index.html");
           }
@@ -176,6 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
           if (userName) userName.textContent = data.user?.name ?? "Usuario";   // El operador '??' pone "Usuario" por defecto si el nombre viene vacío
           if (btnCarrito) btnCarrito.classList.remove("hidden");
 
+          window.__RAICES_AUTH__ = { logged, user: data.user ?? null };
+
 
         } else {
           // Mostrar botón login
@@ -197,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnLogout) btnLogout.classList.add("hidden");
         if (userPill) userPill.classList.add("hidden");
         if (btnCarrito) btnCarrito.classList.add("hidden");
+         window.__RAICES_AUTH__ = { logged: false, user: null };
       });
   }
 
