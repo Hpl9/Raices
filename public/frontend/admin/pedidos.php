@@ -20,7 +20,7 @@ if ($rol !== 'admin') {
 // 3) Datos para pintar en HTML
 $userName = $_SESSION['user']['nombre'] ?? $_SESSION['user']['name'] ?? 'Administrador';
 
-$activeTab = 'pedidos'
+$activeTab = 'pedidos';
 ?>
 
 <!DOCTYPE html>
@@ -52,11 +52,49 @@ $activeTab = 'pedidos'
 
         <!----- Panel admin + tabs ------>
 
-        <?php require __DIR__ . '/components/panel-tabs.php'; ?>
+     <?php require __DIR__ . '/components/panel-tabs.php'; ?>
+
+      <!-- header tabla---->
+
+     <section class="mt-8 flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl font-extrabold text-brand">Gestión de Pedidos</h2>
+        
+      </div>
+       
+    </section>
+
+     <section class="mt-4 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-[#EAF2E3] text-gray-700">
+            <tr>
+              <th class="px-6 py-4 font-bold">Pedido</th>
+              <th class="px-6 py-4 font-bold">Cliente</th>
+              <th class="px-6 py-4 font-bold">Dirección</th>
+              <th class="px-6 py-4 font-bold">Entrega</th>
+              <th class="px-6 py-4 font-bold">Total</th>
+              <th class="px-6 py-4 font-bold">Estado</th>
+            </tr>
+          </thead>
+
+          <tbody id="adminPedidosTbody" class="divide-y divide-gray-100">
+            <!-- filas desde API -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
 
 
     </main>
 
+       <!-- Flowbite JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+
+  <script src="/Raices/public/frontend/admin/assets/js/admin_pedidos.js"></script>
+  <script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
 </body>
 
 </html>

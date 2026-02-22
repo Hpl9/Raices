@@ -108,7 +108,7 @@ $activeTab = 'productos';
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
 
   <script src="/Raices/public/frontend/admin/assets/js/gestionProductos.js"></script>
-  <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+  <script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
 
  
 </body>
