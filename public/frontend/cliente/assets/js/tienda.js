@@ -8,7 +8,7 @@
 
 
 // Endpoint público del catálogo
-const API_TIENDA = "/Raices/public/api/tienda.php";
+const API_TIENDA = "/api/tienda.php";
 let CATALOGO_BY_ID = new Map();
 
 

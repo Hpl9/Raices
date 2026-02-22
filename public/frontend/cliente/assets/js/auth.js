@@ -11,12 +11,12 @@
 
 
 // Endpoints  API 
-const API_ME = "/Raices/public/api/me.php";
-const API_AUTH = "/Raices/public/api/auth.php";
+const API_ME = "/api/me.php";
+const API_AUTH = "/api/auth.php";
 
 // Rutas destino tras login 
-const URL_ADMIN_DASHBOARD = "/Raices/public/frontend/admin/admin.php";
-const URL_CLIENTE_HOME = "/Raices/public/frontend/cliente/index.html";
+const URL_ADMIN_DASHBOARD = "/frontend/admin/admin.php";
+const URL_CLIENTE_HOME = "/frontend/cliente/index.html";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Referencias a elementos del DOM (navbar + modal)
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda (borra carrito tambien)
             window.Cart?.clearCart?.();
             refreshNavbarSession();
-            window.location.replace("/Raices/public/frontend/cliente/index.html");
+            window.location.replace("/frontend/cliente/index.html");
           }
         })
         .catch(() => {});

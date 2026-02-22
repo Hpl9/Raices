@@ -1,7 +1,7 @@
 
 
 
-const API_PEDIDOS = "/Raices/public/api/pedidos.php";
+const API_PEDIDOS = "/api/pedidos.php";
 
 
 function readCart() {

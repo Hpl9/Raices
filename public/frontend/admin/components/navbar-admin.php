@@ -3,9 +3,9 @@
 
       <!-- Izquierda : logo -->
       <div class="flex items-center gap-3">
-        <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="flex items-center gap-3 group">
+        <a href="/frontend/cliente/index.html" class="flex items-center gap-3 group">
           <img
-            src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
+            src="/frontend/cliente/assets/img/logo.png"
             alt="Logo Raíces"
             class="h-11 w-11 rounded-2xl object-contain bg-white"
           />

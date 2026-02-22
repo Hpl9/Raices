@@ -1,4 +1,4 @@
-const API_ADMIN_PEDIDOS = "/Raices/public/api/admin_pedidos.php";
+const API_ADMIN_PEDIDOS = "/api/admin_pedidos.php";
 // Carga  la lista de pedidos y estados desde la API,
 
 
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tbody = document.getElementById("adminPedidosTbody");
   if (!tbody) return;
 
-  const API_URL = "/Raices/public/api/admin_pedidos.php";
+  const API_URL = "/api/admin_pedidos.php";
   const formatEUR = (n) => (Number(n) || 0).toLocaleString("es-ES", { style: "currency", currency: "EUR" });
 
   try {

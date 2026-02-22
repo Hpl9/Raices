@@ -1,4 +1,4 @@
-const API_PRODUCTOS = "/Raices/public/api/gestionProductos.php";
+const API_PRODUCTOS = "/api/gestionProductos.php";
 
 // al cargar la página pedimos los productos a la API
 document.addEventListener("DOMContentLoaded", () => {

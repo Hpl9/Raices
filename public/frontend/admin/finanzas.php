@@ -6,14 +6,14 @@ session_start();
 
 // 1) Si no hay sesión -> fuera
 if (empty($_SESSION['user'])) {
-  header('Location: /Raices/public/frontend/cliente/index.html');
+  header('Location:/frontend/cliente/index.html');
   exit;
 }
 
 // 2) Si no es admin -> fuera 
 $rol = $_SESSION['user']['rol'] ?? ($_SESSION['user']['role'] ?? null);
 if ($rol !== 'admin') {
-  header('Location: /Raices/public/frontend/cliente/index.html');
+  header('Location: frontend/cliente/index.html');
   exit;
 }
 
@@ -31,7 +31,7 @@ $activeTab = 'finanzas';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raíces/Finanzas</title>
     <!-- Estilos generales  -->
-    <link rel="stylesheet" href="http://localhost/Raices/public/frontend/cliente/assets/css/app.css" />
+    <link rel="stylesheet" href="/frontend/cliente/assets/css/app.css" />
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
