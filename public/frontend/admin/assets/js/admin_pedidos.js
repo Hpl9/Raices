@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
               ${opciones}
             </select>
           </td>
+          
         </tr>`;
     }).join("");
 

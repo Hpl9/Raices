@@ -119,7 +119,7 @@
       </nav>
     </header>
 
-    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    <!--------------- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas----------------------------------->
     
     <div
       id="drawer-menu"
@@ -290,7 +290,7 @@
 
     </main>
 
-      <!---------------------Modal inicio sesion----------------->
+      <!---------------------MODAL DE LOGIN----------------->
 
    <div id="loginModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
         <div class="relative w-full max-w-md">
@@ -367,6 +367,172 @@
         </div>
       </div>
     </div>
+
+
+        <div id="registerModal" tabindex="-1" aria-hidden="true"
+         class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 pb-10 px-6 overflow-y-auto">
+
+            <!-- Fondo oscuro -->
+          <div class="absolute inset-0 bg-black/40"></div>
+
+          <!-- Contenedor -->
+          <div class="relative w-full max-w-md">
+          <div class="relative rounded-3xl bg-white shadow-xl border border-gray-200 overflow-hidden">
+
+          
+
+            <!-- Header fijo -->
+            <div class="flex items-center justify-between px-6 pt-6">
+              <div class="flex w-full rounded-2xl bg-gray-100 p-1 gap-1">
+                <button
+                  type="button"
+                  data-modal-hide="registerModal"
+                  data-modal-target="loginModal"
+                  data-modal-toggle="loginModal"
+                  class="w-1/2 rounded-xl py-2 text-sm font-semibold text-gray-700 hover:bg-white"
+                >
+                  Iniciar Sesión
+                </button>
+
+                <button type="button"
+                  class="w-1/2 rounded-xl bg-gray-900 py-2 text-sm font-semibold text-white">
+                  Registrarse
+                </button>
+              </div>
+
+              <button data-modal-hide="registerModal"
+                class="ml-3 rounded-xl p-2 text-gray-500 hover:bg-gray-100">
+                <span class="sr-only">Cerrar</span> ✕
+              </button>
+            </div>
+
+            <!-- Logo -->
+            <div class="px-6 pt-5">
+              <div class="flex items-center justify-center gap-3">
+                <img
+                  src="/Raices/public/frontend/cliente/assets/img/logo.png"
+                  alt="Logo Raíces"
+                  class="h-11 w-11 rounded-2xl object-contain bg-white border border-gray-200"
+                />
+                <div class="leading-tight">
+                  <p class="text-xl font-extrabold text-[#5B7B2F]">RAÍCES</p>
+                  <p class="text-sm text-gray-500">Conectando tierra y vida.</p>
+                </div>
+              </div>
+            </div>
+
+            <!--  CUERPO SCROLLABLE (esto evita que se salga) -->
+            <div class="px-6 pb-6 pt-5">
+              <div class="max-h-[70vh] overflow-y-auto pr-1">
+                <form id="registerForm" class="space-y-4">
+
+                  <!-- SECCIÓN 1: Cuenta -->
+                  <div class="rounded-2xl bg-[#EAF2E3]/60 border border-[#5B7B2F]/15 p-4">
+                    <p class="text-sm font-semibold text-gray-800 mb-3">Datos de la cuenta</p>
+
+                    <div class="space-y-3">
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Nombre </label>
+                        <input name="nombre" type="text" required placeholder="Tu nombre"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Apellido </label>
+                        <input name="apellido" type="text" required placeholder="Tu Apellido"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input name="email" type="email" required placeholder="tu@email.com"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        <input name="password" type="password" required minlength="6" placeholder="mín. 6 caracteres"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Teléfono</label>
+                        <input name="telefono" type="text" placeholder=" +34 "
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+                
+                  
+
+
+                  
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Dirección</label>
+                        <input name="direccion" type="text" placeholder="Calle, número, piso..."
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+                      
+                      <div>
+                          <label class="block text-sm font-medium text-gray-700">Población</label>
+                          <input name="poblacion" type="text" 
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+                        
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700">Municipio</label>
+                          <input name="municipio" type="text" 
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700">codigo postal</label>
+                          <input name="codigo_postal" type="text" 
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+
+                        
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <!-- mensaje error-->
+                  <div id="registerMsg" class="hidden rounded-xl border p-3 text-sm"></div>
+
+                  <!-- Botón -->
+                  <button type="submit"
+                    class="w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                    Crear cuenta
+                  </button>
+
+                  <p class="text-xs text-gray-600 text-center">
+                    Tus datos se usarán solo para gestionar pedidos y entregas.
+                  </p>
+                </form>
+
+                <!-- Link para volver a login -->
+                <p class="mt-4 text-sm text-center text-gray-600">
+                  ¿Ya tienes cuenta?
+                  <button
+                    type="button"
+                    data-modal-hide="registerModal"
+                    data-modal-target="loginModal"
+                    data-modal-toggle="loginModal"
+                    class="font-semibold text-[#5B7B2F] hover:underline"
+                  >
+                    Inicia sesión
+                  </button>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    
 
     <!-- --------------------- MODAL CARRITO --------------------- -->
 <div id="carrito-modal" tabindex="-1" aria-hidden="true"
@@ -490,7 +656,7 @@
 
 
     <!----------------------Footer---------------------->
-
+    
     <footer class="border-t border-gray-200 py-6">
       <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-gray-500">© <span id="year"></span> Raíces. Todos los derechos reservados.</p>
