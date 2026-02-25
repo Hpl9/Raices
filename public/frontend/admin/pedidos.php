@@ -75,6 +75,7 @@ $activeTab = 'pedidos';
               <th class="px-6 py-4 font-bold">Entrega</th>
               <th class="px-6 py-4 font-bold">Total</th>
               <th class="px-6 py-4 font-bold">Estado</th>
+               <th class="px-6 py-4 font-bold">Detalles</th>
             </tr>
           </thead>
 
@@ -93,8 +94,15 @@ $activeTab = 'pedidos';
        <!-- Flowbite JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
 
-  <script src="/Raices/public/frontend/admin/assets/js/admin_pedidos.js"></script>
+
+   <!-- Modal Detalles Pedido -->
+
+  <?php require __DIR__ . '/components/modal-detallePedidos.php'; ?>
+
+
+  <script src="/Raices/public/frontend/admin/assets/js/admin_pedidos.js?v=2"></script>
   <script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+  
 </body>
 
 </html>

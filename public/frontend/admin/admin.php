@@ -87,6 +87,7 @@ $activeTab = 'productos';
               <th class="px-6 py-4 font-bold">Stock</th>
               <th class="px-6 py-4 font-bold">Procedencía</th>
               <th class="px-6 py-4 font-bold text-right">Acciones</th>
+             
             </tr>
           </thead>
 
@@ -103,6 +104,8 @@ $activeTab = 'productos';
   <!--------- MODAL PRODUCTO (Crear / Editar)--------------------->
 
   <?php require __DIR__ . '/components/modal-producto.php'; ?>
+
+
 
    <!-- Flowbite JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
