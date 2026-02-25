@@ -351,7 +351,7 @@
                 class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
             </div>
 
-            <button id= "btn-login-modal"type="submit"
+            <button id= "btn-login-modal "type="submit"
               class="w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
               Entrar
             </button>
@@ -368,6 +368,8 @@
       </div>
     </div>
 
+    
+      <!---------------------MODAL DE REGISTRO NUEVO CLIENTE----------------->
 
         <div id="registerModal" tabindex="-1" aria-hidden="true"
          class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 pb-10 px-6 overflow-y-auto">
@@ -433,13 +435,13 @@
                     <div class="space-y-3">
                       <div>
                         <label class="block text-sm font-medium text-gray-700">Nombre </label>
-                        <input name="nombre" type="text" required placeholder="Tu nombre"
+                        <input name="nombre" type="text" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'\-]{2,60}$" required placeholder="Tu nombre"
                           class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                       </div>
 
                       <div>
                         <label class="block text-sm font-medium text-gray-700">Apellido </label>
-                        <input name="apellido" type="text" required placeholder="Tu Apellido"
+                        <input name="apellido" type="text" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'\-]{2,60}$" required placeholder="Tu Apellido"
                           class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                       </div>
 
@@ -457,7 +459,7 @@
 
                       <div>
                         <label class="block text-sm font-medium text-gray-700">Teléfono</label>
-                        <input name="telefono" type="text" placeholder=" +34 "
+                        <input name="telefono" type="tel" pattern="^\+?\d{9,15}$" required placeholder=" +34 "
                           class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                       </div>
                 
@@ -467,25 +469,25 @@
                   
                       <div>
                         <label class="block text-sm font-medium text-gray-700">Dirección</label>
-                        <input name="direccion" type="text" placeholder="Calle, número, piso..."
+                        <input name="direccion" type="text" required placeholder="Calle, número, piso..."
                           class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                       </div>
                       
                       <div>
                           <label class="block text-sm font-medium text-gray-700">Población</label>
-                          <input name="poblacion" type="text" 
+                          <input name="poblacion" type="text" required
                             class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                         </div>
                         
                         <div>
                           <label class="block text-sm font-medium text-gray-700">Municipio</label>
-                          <input name="municipio" type="text" 
+                          <input name="municipio" type="text" required
                             class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                         </div>
 
                         <div>
                           <label class="block text-sm font-medium text-gray-700">codigo postal</label>
-                          <input name="codigo_postal" type="text" 
+                          <input name="codigo_postal" type="text" pattern="^\d{5}$" required
                             class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
                         </div>
 
@@ -683,7 +685,9 @@
     <!-- tienda.JS de Muestra los productos de base de datos -->
     <script src="/Raices/public/frontend/cliente/assets/js/tienda.js?v=1"></script>
 
-
+    
+    <!-- registro.JS de nuevos clientes -->
+    <script src="/Raices/public/frontend/cliente/assets/js/registro.js"></script>
 
     
   </body>
