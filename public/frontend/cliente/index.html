@@ -497,7 +497,28 @@
                   </div>
                    
                   <!-- mensaje error-->
-                  <div id="registerMsg" class="hidden rounded-xl border p-3 text-sm"></div>
+                  <div id="registerMsg" class="hidden rounded-xl border p-3 text-sm "></div>
+
+
+                  <!--la Ley Orgánica / RGPD-->
+                  <div class="flex items-start gap-2 text-sm my-4">
+                      <input
+                        id="acepta_privacidad"
+                        name="acepta_privacidad"
+                        type="checkbox"
+                        required
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+                      >
+                      <label for="acepta_privacidad" class="text-gray-700">
+                        He leído y acepto la
+                        <a href="/Raices/public/frontend/cliente/politica-privacidad.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline font-extrabold text-[#5B7B2F] hover:underline">
+                          Política de Privacidad
+                        </a>.
+                      </label>
+                    </div>
 
                   <!-- Botón -->
                   <button type="submit"

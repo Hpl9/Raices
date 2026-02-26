@@ -20,6 +20,16 @@ $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 if (!is_array($data)) $data = [];
 
+//  VALIDACIÓN RGPD 
+if (empty($data['acepta_privacidad'])) {
+  http_response_code(400);
+  echo json_encode([
+    'ok' => false,
+    'error' => 'Debes aceptar la Política de Privacidad'
+  ], JSON_UNESCAPED_UNICODE);
+  exit;
+}
+
 function s($v) { return is_string($v) ? trim($v) : ''; }
 
 $nombre   = s($data['nombre'] ?? '');
