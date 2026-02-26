@@ -219,25 +219,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeBtn) closeBtn.click();
   }
 
-  function showLoginError(msg) {
-    // Inserta error dentro del modal
-    let box = document.getElementById("loginError");
-    if (!box) {
-      box = document.createElement("div");
-      box.id = "loginError";
-      box.className =
-        "mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700";
-
-      const btn = document.getElementById("btn-login-modal");
-      btn?.parentElement?.appendChild(box);
+    function showLoginError(msg) {
+      const box = document.getElementById("loginError");
+      if (!box) return;
+      box.textContent = msg;
+      box.classList.remove("hidden");   // mostrar
     }
-    box.textContent = msg;
-  }
 
-  function clearLoginError() {
-    const box = document.getElementById("loginError");
-    if (box) box.remove();
-  }
+    function clearLoginError() {
+      const box = document.getElementById("loginError");
+      if (!box) return;
+      box.textContent = "";
+      box.classList.add("hidden");      //  ocultar
+    }
 
   // ---------------- ENTREGA (pedido) ----------------
 
