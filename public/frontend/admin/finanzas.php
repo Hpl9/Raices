@@ -62,11 +62,56 @@ $activeTab = 'finanzas';
     <section class="mt-4" id="finanzasCards"></section>
     <div id="finanzasSocios"></div>
 
+   <!---------------------CARDS ----------------------------->
+   <section class="mt-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5">
+          <p class="text-xs text-gray-500">Pedidos</p>
+          <p id="finCardPedidos" class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5">
+          <p class="text-xs text-gray-500">Envíos</p>
+          <p id="finCardEnvios" class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
+        </div>
+
+        <div class="rounded-2xl border border-gray-200 bg-white shadow-sm p-5">
+          <p class="text-xs text-gray-500">Total productos</p>
+          <p id="finCardTotalProductos" class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
+        </div>
+      </div>
+    </section>
+    
+   <!-------------TABLA BENEFICIOS ----------------------------->
+   <section class="mt-8 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+      <div class="px-6 py-4 bg-[#EAF2E3] text-gray-700 font-bold">
+        Beneficios por socio
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left">
+          <thead class="bg-white text-gray-700">
+            <tr>
+              <th class="px-6 py-4 font-bold">Socio</th>
+              <th class="px-6 py-4 font-bold text-right">Ventas (productos)</th>
+            </tr>
+          </thead>
+
+          <tbody id="finanzasSociosBody" class="divide-y divide-gray-100">
+            <tr>
+              <td colspan="2" class="px-6 py-6 text-gray-500">Cargando…</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     </main>
 
 <!-- Auth  -->
 <script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+
+<script src="/Raices/public/frontend/admin/assets/js/finanzas.js?v=2"></script>
 
 </body>
 
