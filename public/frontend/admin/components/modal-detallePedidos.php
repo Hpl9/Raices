@@ -1,4 +1,5 @@
 <!-- Modal Detalles Pedido -->
+ 
 <div id="pedidoDetalleModal" tabindex="-1" aria-hidden="true"
   class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 pb-10 px-6 overflow-y-auto">
   <div class="absolute inset-0 bg-black/40"></div>

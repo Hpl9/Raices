@@ -43,7 +43,7 @@ $activeTab = 'productos';
 
 <body class="bg-white text-gray-900">
 
-  <!-------NAVBAR ADMIN -------->
+  <!---NAVBAR ADMIN ---->
 
   <?php require __DIR__ . '/components/navbar-admin.php'; ?>
 
@@ -74,7 +74,7 @@ $activeTab = 'productos';
       
     </section>
 
-    <!------------------TABLA PRODUCTOS-------------------------->
+    <!------------TABLA PRODUCTOS-------------->
     <section class="mt-4 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
       <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">

@@ -12,7 +12,7 @@ header('Content-Type: application/json; charset=utf-8');
 try {
     $pdo = db();
 
-    //  Consulta de catálogo público
+    //  LISTAR  catálogo público
    
     $stmt = $pdo->query("
         SELECT
@@ -26,6 +26,7 @@ try {
           imagen_url,
           procedencia
         FROM productos
+        WHERE activo = 1
         ORDER BY categoria, nombre
     ");
 

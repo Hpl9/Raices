@@ -87,16 +87,26 @@ try {
 
     //  Crear pedido
     $stmt = $pdo->prepare("
-        INSERT INTO pedidos (usuario_id, total, direccion_entrega, estado_id, tipo_entrega)
-        VALUES (?, ?, ?, 1, ?)
+       INSERT INTO pedidos (
+        usuario_id,
+        total,
+        direccion_entrega,
+        estado_id,
+        tipo_entrega,
+        usuario_creacion,
+        usuario_modificacion
+    )
+    VALUES (?, ?, ?, 1, ?, ?, ?)
     ");
 
     $stmt->execute([
-        $usuarioId,
+        $usuarioId,   // usuario que hace el pedido
         $total,
-        null, // dirección simple por ahora
-        $tipo
-    ]);
+        null,
+        $tipo,
+        $usuarioId,   // usuario_creacion
+        $usuarioId    // usuario_modificacion (al crear)
+        ]);
 
     // ID del pedido recién creado
     $pedidoId = (int)$pdo->lastInsertId();

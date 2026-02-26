@@ -53,6 +53,15 @@ $activeTab = 'finanzas';
 
         <?php require __DIR__ . '/components/panel-tabs.php'; ?>
 
+        
+    <section class="mt-8">
+      <h2 class="text-2xl font-extrabold text-brand">Finanzas</h2>
+      <p class="text-sm text-gray-600 mt-1">Resumen  basado en pedidos y ventas por socio.</p>
+    </section>
+
+    <section class="mt-4" id="finanzasCards"></section>
+    <div id="finanzasSocios"></div>
+
 
     </main>
 

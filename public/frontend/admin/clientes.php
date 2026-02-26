@@ -42,7 +42,7 @@ $activeTab = 'clientes';
 
 <body class="bg-white text-gray-900">
 
-    <!-------NAVBAR ADMIN -------->
+    <!----NAVBAR ADMIN ------>
 
     <?php require __DIR__ . '/components/navbar-admin.php'; ?>
 

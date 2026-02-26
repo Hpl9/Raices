@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   const tbody = document.getElementById("adminPedidosTbody");
   if (!tbody) return;
 
-  // 🟩 Formatea números a euros (ej: 4.8 -> 4,80 €)
+  // Formatea números a euros (ej: 4.8 -> 4,80 €)
   const formatEUR = (n) =>
     (Number(n) || 0).toLocaleString("es-ES", { style: "currency", currency: "EUR" });
 
-  // 🟩 Cierra el modal de detalles (simple: ocultar + volver a permitir scroll)
+  //  Cierra el modal de detalles (simple: ocultar + volver a permitir scroll)
   function closePedidoDetalleModal() {
     const modal = document.getElementById("pedidoDetalleModal");
     if (modal) modal.classList.add("hidden");
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    // 🟩 1) Cargar lista de pedidos + estados
+    //  Cargar lista de pedidos + estados
     const res = await fetch(API_ADMIN_PEDIDOS, { credentials: "include" });
     const { ok, pedidos = [], estados = [], error } = await res.json().catch(() => ({}));
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // 🟩 2) Pintar filas de la tabla (incluye botón lupa con data-pedido-detalle)
+    // Pintar filas de la tabla (incluye botón lupa con data-pedido-detalle)
     tbody.innerHTML = pedidos
       .map((p) => {
         const id = p.pedido_id ?? p.id;
