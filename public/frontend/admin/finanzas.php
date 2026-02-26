@@ -56,6 +56,9 @@ $activeTab = 'finanzas';
 
     </main>
 
+<!-- Auth  -->
+<script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+
 </body>
 
 </html>

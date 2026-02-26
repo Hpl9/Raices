@@ -53,9 +53,49 @@ $activeTab = 'clientes';
 
         <?php require __DIR__ . '/components/panel-tabs.php'; ?>
 
+        <!-- header tabla---->
+
+        <section class="mt-8 flex items-end justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-extrabold text-brand">Gestión de Clientes</h2>
+            <p class="text-sm text-gray-600 mt-1">Listado de usuarios registrados</p>
+          </div>
+        </section>
+
+        <section class="mt-4 rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left">
+              <thead class="bg-[#EAF2E3] text-gray-700">
+                <tr>
+                  <th class="px-6 py-4 font-bold">ID</th>
+                  <th class="px-6 py-4 font-bold">Nombre</th>
+                  <th class="px-6 py-4 font-bold">Email</th>
+                  <th class="px-6 py-4 font-bold">Teléfono</th>
+                  <th class="px-6 py-4 font-bold">Dirección</th>
+                  <th class="px-6 py-4 font-bold">CP</th>
+                  <th class="px-6 py-4 font-bold">Población</th>
+                  <th class="px-6 py-4 font-bold">Municipio</th>
+                  <th class="px-6 py-4 font-bold">Acciones</th>
+                </tr>
+              </thead>
+
+              <tbody id="adminClientesTbody" class="divide-y divide-gray-100">
+                <!-- filas desde API -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
 
     </main>
 
+
+   <!-- clientes. JS -->
+  <script src="/Raices/public/frontend/admin/assets/js/clientes.js?v=2"></script>
+
+  <!-- Auth  -->
+ <script src="/Raices/public/frontend/cliente/assets/js/auth.js?v=2"></script>
+    
 </body>
 
 </html>
