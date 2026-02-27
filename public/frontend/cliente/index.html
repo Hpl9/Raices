@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Raíces — Tienda</title>
     <!--Estilos generales-->
-    <link rel="stylesheet" href="http://localhost/Raices/public/frontend/cliente/assets/css/app.css">
+    <link rel="stylesheet" href="/Raices/public/frontend/cliente/assets/css/app.css">
     <!-- Tailwind (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Flowbite -->
@@ -35,7 +35,7 @@
           <!--(logo + texto)-->
         <a href="index.html" class="flex items-center gap-3 group">
           <img
-            src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
+            src="/Raices/public/frontend/cliente/assets/img/logo.png"
             alt="Logo Raíces"
             class="h-12 w-12 sm:h-13 sm:w-13 rounded-2xl object-contain bg-white"
           />
@@ -52,11 +52,11 @@
         <!-- Centro: Links (solo para pantallas grandes) -->
         <div class="hidden lg:flex items-center gap-8">
         
-          <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
+          <a href="/Raices/public/frontend/cliente/index.html" class="font-semibold text-gray-700 hover:text-brand">Inicio</a>
+          <a href="/Raices/public/frontend/cliente/quienesSomos.html" class="font-semibold text-gray-700 hover:text-brand">Quiénes Somos</a>
+          <a href="/Raices/public/frontend/cliente/nuestrosProductos.html" class="font-semibold text-gray-700 hover:text-brand">Nuestros Productos</a>
+          <a href="/Raices/public/frontend/cliente/faqs.html" class="font-semibold text-gray-700 hover:text-brand">FAQs</a>
+          <a href="/Raices/public/frontend/cliente/contactanos.html" class="font-semibold text-gray-700 hover:text-brand">Contáctanos</a>
         </div>
 
         <!-- Derecha: Login  -->
@@ -89,10 +89,11 @@
             Salir
           </button>
 
-          <!-- Carrito ( siempre visible) -->
-          <a id="btn-cart"
-            href="carrito.html"
-            class="inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100">
+          <!-- Carrito  -->
+          <a id="btn-carrito"
+            href="#"
+           
+            class="hidden inline-flex items-center justify-center rounded-xl p-2 text-gray-700 hover:bg-gray-100">
             <!-- Icono carrito -->
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -102,7 +103,7 @@
 
           <!-- Perfil usuario (solo cuando hay sesión) -->
           <a id="user-pill"
-            href="perfil.php"
+            href="#"
             class="hidden items-center gap-2 rounded-full bg-gray-100 px-3 py-2 hover:bg-gray-200">
             <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white border border-gray-200">
               <!-- Icono usuario -->
@@ -118,7 +119,7 @@
       </nav>
     </header>
 
-    <!-- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas-->
+    <!--------------- Menu lateral (Drawer Menu con Flowbite) - para pantallas pequeñas / medianas----------------------------------->
     
     <div
       id="drawer-menu"
@@ -142,11 +143,11 @@
         </div>
 
         <nav class="space-y-2">
-          <a href="http://localhost/Raices/public/frontend/cliente/index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
-          <a href="http://localhost/Raices/public/frontend/cliente/contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
+          <a href="/Raices/public/frontend/cliente/index.html" class="block rounded-xl px-4 py-3 font-medium text-gray-900 bg-gray-50 hover:bg-gray-100">Inicio</a>
+          <a href="/Raices/public/frontend/cliente/quienesSomos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Quiénes Somos</a>
+          <a href="/Raices/public/frontend/cliente/nuestrosProductos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Nuestros Productos</a>
+          <a href="/Raices/public/frontend/cliente/faqs.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">FAQs</a>
+          <a href="/Raices/public/frontend/cliente/contactanos.html" class="block rounded-xl px-4 py-3 font-medium text-gray-700 hover:bg-gray-50">Contáctanos</a>
         </nav>
     </div>
 
@@ -179,7 +180,7 @@
           <!-- Verduras -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente//assets/img/verduras.jpg"
+              src="/Raices/public/frontend/cliente//assets/img/verduras.jpg"
               alt="Verduras"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -207,7 +208,7 @@
           <!-- Frutas -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/fruta.jpg"
+              src="/Raices/public/frontend/cliente/assets/img/fruta.jpg"
               alt="Frutas"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -235,7 +236,7 @@
           <!-- Regionales -->
           <article class="group relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-100 shadow-sm">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/quesos.jpg"
+              src="/Raices/public/frontend/cliente/assets/img/quesos.jpg"
               alt="Productos regionales"
               class="h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -268,28 +269,28 @@
             <h3 class="text-2xl font-extrabold text-center uppercase tracking-wide my-10">Verduras</h3>
           
             <!--  Aquí pintamos cards de verduras -->
-            <div id="grid-verduras" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="grid-verduras" class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"></div>
           </section>
 
           <section id="frutas" class="mt-10 scroll-mt-28">
             <h3 class="text-2xl  font-extrabold text-center uppercase tracking-wide my-10">Frutas</h3>
 
             <!--  Aquí pintamos cards de frutas -->
-            <div id="grid-frutas" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="grid-frutas" class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"></div>
           </section>
 
           <section id="regionales" class="mt-10 scroll-mt-28">
             <h3 class="text-2xl  font-extrabold text-center uppercase tracking-wide my-10">Productos regionales</h3>
 
             <!--  Aquí pintamos cards de regionales -->
-            <div id="grid-regionales" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div id="grid-regionales" class="mt-6 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6"></div>
         </section>
 
 
 
     </main>
 
-      <!---------------------Modal inicio sesion----------------->
+      <!---------------------MODAL DE LOGIN----------------->
 
    <div id="loginModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
         <div class="relative w-full max-w-md">
@@ -325,7 +326,7 @@
           <!-- Logo + RAÍCES -->
          <div class="flex items-center justify-center gap-3 mb-4">
             <img
-              src="http://localhost/Raices/public/frontend/cliente/assets/img/logo.png"
+              src="/Raices/public/frontend/cliente/assets/img/logo.png"
               alt="Logo Raíces"
               class="h-12 w-12 rounded-2xl object-contain bg-white border border-gray-200"
             />
@@ -350,7 +351,12 @@
                 class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
             </div>
 
-            <button id= "btn-login-modal"type="submit"
+            <!-- Mensaje de error login -->
+            <div id="loginError"
+                class="hidden rounded-xl bg-red-100 border border-red-300 text-red-700 px-4 py-2 text-sm">
+            </div>
+
+            <button id= "btn-login-modal" type="submit"
               class="w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
               Entrar
             </button>
@@ -367,8 +373,318 @@
       </div>
     </div>
 
-    <!----------------------Footer---------------------->
+    
+      <!---------------------MODAL DE REGISTRO NUEVO CLIENTE----------------->
 
+        <div id="registerModal" tabindex="-1" aria-hidden="true"
+         class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 pb-10 px-6 overflow-y-auto">
+
+            <!-- Fondo oscuro -->
+          <div class="absolute inset-0 bg-black/40"></div>
+
+          <!-- Contenedor -->
+          <div class="relative w-full max-w-md">
+          <div class="relative rounded-3xl bg-white shadow-xl border border-gray-200 overflow-hidden">
+
+          
+
+            <!-- Header fijo -->
+            <div class="flex items-center justify-between px-6 pt-6">
+              <div class="flex w-full rounded-2xl bg-gray-100 p-1 gap-1">
+                <button
+                  type="button"
+                  data-modal-hide="registerModal"
+                  data-modal-target="loginModal"
+                  data-modal-toggle="loginModal"
+                  class="w-1/2 rounded-xl py-2 text-sm font-semibold text-gray-700 hover:bg-white"
+                >
+                  Iniciar Sesión
+                </button>
+
+                <button type="button"
+                  class="w-1/2 rounded-xl bg-gray-900 py-2 text-sm font-semibold text-white">
+                  Registrarse
+                </button>
+              </div>
+
+              <button data-modal-hide="registerModal"
+                class="ml-3 rounded-xl p-2 text-gray-500 hover:bg-gray-100">
+                <span class="sr-only">Cerrar</span> ✕
+              </button>
+            </div>
+
+            <!-- Logo -->
+            <div class="px-6 pt-5">
+              <div class="flex items-center justify-center gap-3">
+                <img
+                  src="/Raices/public/frontend/cliente/assets/img/logo.png"
+                  alt="Logo Raíces"
+                  class="h-11 w-11 rounded-2xl object-contain bg-white border border-gray-200"
+                />
+                <div class="leading-tight">
+                  <p class="text-xl font-extrabold text-[#5B7B2F]">RAÍCES</p>
+                  <p class="text-sm text-gray-500">Conectando tierra y vida.</p>
+                </div>
+              </div>
+            </div>
+
+            <!--  CUERPO SCROLLABLE (esto evita que se salga) -->
+            <div class="px-6 pb-6 pt-5">
+              <div class="max-h-[70vh] overflow-y-auto pr-1">
+                <form id="registerForm" class="space-y-4">
+
+                  <!-- SECCIÓN 1: Cuenta -->
+                  <div class="rounded-2xl bg-[#EAF2E3]/60 border border-[#5B7B2F]/15 p-4">
+                    <p class="text-sm font-semibold text-gray-800 mb-3">Datos de la cuenta</p>
+
+                    <div class="space-y-3">
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Nombre </label>
+                        <input name="nombre" type="text" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'\-]{2,60}$" required placeholder="Tu nombre"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Apellido </label>
+                        <input name="apellido" type="text" pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'\-]{2,60}$" required placeholder="Tu Apellido"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Email</label>
+                        <input name="email" type="email" required placeholder="tu@email.com"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                        <input name="password" type="password" required minlength="6" placeholder="mín. 6 caracteres"
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Teléfono</label>
+                        <input name="telefono" type="tel" pattern="^\+?\d{9,15}$" required placeholder=" +34 "
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+                
+                  
+
+
+                  
+                      <div>
+                        <label class="block text-sm font-medium text-gray-700">Dirección</label>
+                        <input name="direccion" type="text" required placeholder="Calle, número, piso..."
+                          class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                      </div>
+                      
+                      <div>
+                          <label class="block text-sm font-medium text-gray-700">Población</label>
+                          <input name="poblacion" type="text" required
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+                        
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700">Municipio</label>
+                          <input name="municipio" type="text" required
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+
+                        <div>
+                          <label class="block text-sm font-medium text-gray-700">codigo postal</label>
+                          <input name="codigo_postal" type="text" pattern="^\d{5}$" required
+                            class="mt-1 w-full rounded-xl border border-gray-200 bg-white p-3 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                        </div>
+
+                        
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <!-- mensaje error-->
+                  <div id="registerMsg" class="hidden rounded-xl border p-3 text-sm "></div>
+
+
+                  <!--la Ley Orgánica / RGPD-->
+                  <div class="flex items-start gap-2 text-sm my-4">
+                      <input
+                        id="acepta_privacidad"
+                        name="acepta_privacidad"
+                        type="checkbox"
+                        required
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+                      >
+                      <label for="acepta_privacidad" class="text-gray-700">
+                        He leído y acepto la
+                        <a href="/Raices/public/frontend/cliente/politica-privacidad.html"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="underline font-extrabold text-[#5B7B2F] hover:underline">
+                          Política de Privacidad
+                        </a>.
+                      </label>
+                    </div>
+
+                  <!-- Botón -->
+                  <button type="submit"
+                    class="w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+                    Crear cuenta
+                  </button>
+
+                  <p class="text-xs text-gray-600 text-center">
+                    Tus datos se usarán solo para gestionar pedidos y entregas.
+                  </p>
+                </form>
+
+                <!-- Link para volver a login -->
+                <p class="mt-4 text-sm text-center text-gray-600">
+                  ¿Ya tienes cuenta?
+                  <button
+                    type="button"
+                    data-modal-hide="registerModal"
+                    data-modal-target="loginModal"
+                    data-modal-toggle="loginModal"
+                    class="font-semibold text-[#5B7B2F] hover:underline"
+                  >
+                    Inicia sesión
+                  </button>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    
+
+    <!-- --------------------- MODAL CARRITO --------------------- -->
+<div id="carrito-modal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed inset-0 z-50 flex items-center justify-center bg-[#5B7B2F]/20 backdrop-blur-sm">
+
+  <div class="relative w-full max-w-2xl">
+    <div class="relative rounded-3xl bg-white shadow-xl border border-gray-200 overflow-hidden">
+
+      <!-- Header -->
+      <div class="flex items-start justify-between px-6 pt-6 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-[#EAF2E3] border border-[#5B7B2F]/20">
+            <!-- icono bolsa -->
+            <svg class="w-5 h-5 text-[#5B7B2F]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M6 8h12l-1 12H7L6 8Zm3-3a3 3 0 0 1 6 0v3H9V5Z"/>
+            </svg>
+          </span>
+
+          <div class="leading-tight">
+            <h3 class="text-xl font-extrabold text-gray-900">Tu Carrito</h3>
+            <p id="cart-count" class="text-sm text-gray-500">0 productos</p>
+          </div>
+        </div>
+
+        <button data-modal-hide="carrito-modal"
+          class="rounded-xl p-2 text-gray-500 hover:bg-gray-100">
+          <span class="sr-only">Cerrar</span> ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="px-6 pt-5 pb-6">
+
+        <!-- Lista (scroll interno) -->
+        <div id="cart-list"
+          class="max-h-[360px] overflow-y-auto pr-2 space-y-4">
+          <!-- Estado vacío (por defecto) -->
+          <div id="cart-empty"
+            class="rounded-2xl border border-gray-200 bg-gray-50 p-6 text-center">
+            <p class="text-sm text-gray-600">Tu carrito está vacío.</p>
+            <p class="mt-1 text-xs text-gray-500">Añade productos desde la tienda.</p>
+          </div>
+
+          <!-- pintar aqui productos -->
+         
+          
+
+        </div>
+
+        <!-- Resumen -->
+
+        <!-- Tipo de entrega -->
+        <div class="mt-4">
+
+          <p class="text-sm font-bold text-gray-700">Tipo de entrega</p>
+
+          <!-- Radios en la misma línea -->
+          <div class="mt-4 flex items-center gap-6 text-sm">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="tipo_entrega"
+                id="entrega-recogida"
+                value="recogida"
+                checked
+                class="h-4 w-4 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+              />
+              <span>Recogida en tienda ( Gratis )</span>
+            </label>
+
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input
+                type="radio"
+                name="tipo_entrega"
+                id="entrega-envio"
+                value="envio"
+                class="h-4 w-4 text-[#5B7B2F] focus:ring-[#5B7B2F]"
+              />
+              <span>Envío 24h-48h ( Coste: 2,95 € )</span>
+            </label>
+          </div>
+
+          <!-- Dirección -->
+         <div id="box-direccion" class="mt-4 hidden">
+          <div class="w-full rounded-xl bg-[#EAF2E3]/60 px-4 py-3 text-sm text-gray-700">
+            <span class="font-semibold">Dirección de entrega:</span>
+            <span id="txt-direccion">
+              Se añadirá la direccion de envio registrada en el perfil.
+            </span>
+          </div>
+        </div>
+
+
+        </div>
+
+
+        <div class="mt-6 rounded-2xl bg-[#EAF2E3]/60 border border-[#5B7B2F]/15 p-5">
+
+          <div class="flex items-center justify-between">
+            <span class="text-base font-semibold text-gray-700">Total</span>
+            <span id="cart-total" class="text-2xl font-extrabold text-gray-900">0,00 €</span>
+          </div>
+
+          <button id="btn-checkout"
+            class="mt-5 w-full rounded-xl bg-[#5B7B2F] py-3 text-white font-semibold hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-[#5B7B2F]">
+           Realizar pedido
+          </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+    <!----------------------Footer---------------------->
+    
     <footer class="border-t border-gray-200 py-6">
       <div class="mx-auto max-w-6xl px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-sm text-gray-500">© <span id="year"></span> Raíces. Todos los derechos reservados.</p>
@@ -377,15 +693,28 @@
       <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     </footer>
 
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+
     <!-- auth.JS de autenticación -->
-    <script src="http://localhost/Raices/public/frontend/cliente/assets/js/auth.js"></script>
+    <script src="/Raices/public/frontend/cliente/assets/js/auth.js"></script>
+
+    <!-- carrito -->
+     <script src="/Raices/public/frontend/cliente/assets/js/carrito.js?v=1"></script>
+
+    <!-- checkout -->
+     <script src="/Raices/public/frontend/cliente/assets/js/checkout.js"></script>
+ 
+
 
     <!-- tienda.JS de Muestra los productos de base de datos -->
     <script src="/Raices/public/frontend/cliente/assets/js/tienda.js?v=1"></script>
 
+    
+    <!-- registro.JS de nuevos clientes -->
+    <script src="/Raices/public/frontend/cliente/assets/js/registro.js"></script>
 
-
-    <!-- Flowbite JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.js"></script>
+    
   </body>
 </html>

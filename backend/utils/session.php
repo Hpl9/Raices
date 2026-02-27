@@ -1,6 +1,6 @@
 <?php
 
-// Centraliza start_session() para no repetir session_start()
+// Centraliza start_session() 
 
 
 function start_session(): void

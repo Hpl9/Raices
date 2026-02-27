@@ -26,7 +26,7 @@ if ($action === 'logout') {
     //  Vaciar variables de sesión
     $_SESSION = [];
 
-    //  Borrar cookie de sesión (más limpio)
+    //  Borrar cookie de sesión 
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
         setcookie(
@@ -82,6 +82,10 @@ try {
     // Punto decisivo: regenerar ID de sesión tras login. Evita fijación/secuestro de sesión
 
     session_regenerate_id(true);
+
+    //  ACTUALIZAR ÚLTIMO INICIO DE SESIÓN (BD)
+    $upd = $pdo->prepare("UPDATE usuarios SET ultimo_inicio_sesion = NOW() WHERE id = :id");
+    $upd->execute(['id' => $user['id']]);
 
     // Guardamos solo lo necesario (NUNCA password_hash)
     $_SESSION['user'] = [

@@ -1,8 +1,8 @@
 <?php
 
 
-require_once __DIR__ . '/../Database/conexion.php';
-require_once __DIR__ . '/../Entities/Producto.php';
+require_once __DIR__ . '/../database/conexion.php';
+require_once __DIR__ . '/../entities/producto.php';
 
 final class ProductoRepository
 {
@@ -15,7 +15,6 @@ final class ProductoRepository
 
     
     //---------------- LISTAR (admin)---------------------------
-
     public function findAllConSocio(): array
     {
         $stmt = $this->pdo->query("
@@ -33,6 +32,7 @@ final class ProductoRepository
                 CONCAT(u.nombre, ' ', u.apellido) AS socio
             FROM productos p
             INNER JOIN usuarios u ON u.id = p.usuario_id
+            WHERE p.activo = 1
             ORDER BY p.categoria, p.nombre
         ");
 
@@ -82,9 +82,9 @@ final class ProductoRepository
     {
         $stmt = $this->pdo->prepare("
             INSERT INTO productos
-            (nombre, categoria, descripcion, precio, stock, unidad_medida, imagen_url, procedencia, usuario_id)
+            (nombre, categoria, descripcion, precio, stock, unidad_medida, imagen_url, procedencia, usuario_id, usuario_creacion, usuario_modificacion)
             VALUES
-            (:nombre, :categoria, :descripcion, :precio, :stock, :unidad, :imagen, :procedencia, :usuario_id)
+            (:nombre, :categoria, :descripcion, :precio, :stock, :unidad, :imagen, :procedencia, :usuario_id, :usuario_creacion, :usuario_modificacion)
         ");
 
         $stmt->execute([
@@ -97,6 +97,8 @@ final class ProductoRepository
             'imagen' => $p->getImagenUrl(),
             'procedencia' => $p->getProcedencia(),
             'usuario_id' => $p->getUsuarioId(),
+            'usuario_creacion' => $p->getUsuarioId(),
+            'usuario_modificacion' => $p->getUsuarioId(),
         ]);
 
         return (int)$this->pdo->lastInsertId();
@@ -137,21 +139,24 @@ final class ProductoRepository
     }
 
      
-         //---------------- ELIMINAR (solo los productos de ese usuario)-------------------------------------
+         //---------------- ELIMINAR (solo los productos de ese usuario activo = 0)-------------------------------------
   
     public function delete(int $id, int $usuarioId): bool
     {
-        $stmt = $this->pdo->prepare("
-            DELETE FROM productos
-            WHERE id = :id
-            AND usuario_id = :usuario_id
-        ");
+            $stmt = $this->pdo->prepare("
+                UPDATE productos
+                SET activo = 0
+                WHERE id = :id
+                AND usuario_id = :usuario_id
+                LIMIT 1
+            ");
 
-        return $stmt->execute([
-            'id' => $id,
-            'usuario_id' => $usuarioId
-        ]);
-        return $stmt->rowCount() > 0; //solo devuelve ok- si al contar se ha eliminado
-    }
+            $stmt->execute([
+                'id' => $id,
+                'usuario_id' => $usuarioId
+            ]);
+
+            return $stmt->rowCount() > 0;
+        }
 
 }

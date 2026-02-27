@@ -1,11 +1,11 @@
 
 // Objetivo:
-// 1) Comprobar sesión (me.php) al cargar y actualizar navbar:
+//  Comprobar sesión (me.php) al cargar y actualizar navbar:
 //    - Mostrar "Iniciar sesión" si NO hay sesión
 //    - Mostrar "Salir" + "perfil (icono+nombre)" si sí hay sesión
-// 2) Enviar login desde el modal (auth.php)
-// 3) Cerrar sesión (auth.php)
-// 4) Redirigir según rol:
+//  Enviar login desde el modal (auth.php)
+//  Cerrar sesión (auth.php)
+//  Redirigir según rol:
 //    - admin  -> /Raices/public/admin/admin.php
 //    - cliente-> /Raices/public/cliente/index.html
 
@@ -26,16 +26,55 @@ document.addEventListener("DOMContentLoaded", () => {
   // (icono + nombre) -> aparece solo con sesión
   const userPill = document.getElementById("user-pill");
   const userName = document.getElementById("user-name");
-
+  const btnCarrito = document.getElementById("btn-carrito");
   // Form de login en el modal
   const loginForm = document.getElementById("loginForm");
   
   // Por defecto: ocultamos logout y user-pill hasta comprobar sesión
   if (btnLogout) btnLogout.classList.add("hidden");
   if (userPill) userPill.classList.add("hidden");
-  
+  if (btnCarrito) btnCarrito.classList.add("hidden");
+
   // Actualizamos navbar según sesión actual
   refreshNavbarSession();
+
+  window.Auth = {
+  isLogged: () => Boolean(window.__RAICES_AUTH__?.logged),
+  openLoginModal: () => { btnLogin?.click(); },
+  getUser: () => window.__RAICES_AUTH__?.user ?? null,
+};
+
+  
+  // ABRIR carrito
+  if (btnCarrito) {
+    btnCarrito.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const cartEl = document.getElementById("carrito-modal");
+      if (cartEl) {
+        cartEl.classList.remove("hidden");
+      }
+      window.Cart?.render?.();
+
+    });
+  }
+
+  // CERRAR carrito 
+  const btnCerrarCarrito = document.querySelector('[data-modal-hide="carrito-modal"]');
+
+  if (btnCerrarCarrito) {
+    btnCerrarCarrito.addEventListener("click", () => {
+      const cartEl = document.getElementById("carrito-modal");
+      if (cartEl) {
+        cartEl.classList.add("hidden");
+      }
+      
+
+    });
+  }
+
+  
+
 
   
   //------------------ LOGIN (submit del modal) REDIRECCIÓN URL----------------------
@@ -114,9 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.ok) {
-            // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda
+            // Tras logout, refrescamos navbar y nos quedamos en la página a no ser que estemos en admin que redirige a tienda (borra carrito tambien)
+            window.Cart?.clearCart?.();
             refreshNavbarSession();
-            window.location.replace("http://localhost/Raices/public/frontend/cliente/index.html");
+            window.location.replace("/Raices/public/frontend/cliente/index.html");
           }
         })
         .catch(() => {});
@@ -128,12 +168,10 @@ document.addEventListener("DOMContentLoaded", () => {
  
   
   function refreshNavbarSession() {
-    return fetch(API_ME)
+    return fetch(API_ME, { credentials: "include" })
       .then((res) => res.json())
       .then((data) => {
-        //  me.php puede devolver:
-        // - { ok:true, logged:true/false, user:{...} }
-        // - { ok:true, user:{...} } (sin "logged")
+       
         const logged =
           typeof data.logged === "boolean" ? data.logged : Boolean(data.user);
 
@@ -144,9 +182,13 @@ document.addEventListener("DOMContentLoaded", () => {
           //  Mostrar logout
           if (btnLogout) btnLogout.classList.remove("hidden");
 
-          // Mostrar perfil + nombre
+          // Mostrar perfil + nombre + carrito
           if (userPill) userPill.classList.remove("hidden");                   // El operador '?.' (si no existe-> devuelve undefined) evita errores si 'user' no existe
           if (userName) userName.textContent = data.user?.name ?? "Usuario";   // El operador '??' pone "Usuario" por defecto si el nombre viene vacío
+          if (btnCarrito) btnCarrito.classList.remove("hidden");
+
+          window.__RAICES_AUTH__ = { logged, user: data.user ?? null };
+
 
         } else {
           // Mostrar botón login
@@ -157,12 +199,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
           //  Ocultar perfil
           if (userPill) userPill.classList.add("hidden");
+
+          //  Ocultar carrito
+          if (btnCarrito) btnCarrito.classList.add("hidden");
+
         }
       })
       .catch(() => {
         if (btnLogin) btnLogin.style.display = "inline-flex";
         if (btnLogout) btnLogout.classList.add("hidden");
         if (userPill) userPill.classList.add("hidden");
+        if (btnCarrito) btnCarrito.classList.add("hidden");
+         window.__RAICES_AUTH__ = { logged: false, user: null };
       });
   }
 
@@ -171,23 +219,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if (closeBtn) closeBtn.click();
   }
 
-  function showLoginError(msg) {
-    // Inserta error dentro del modal
-    let box = document.getElementById("loginError");
-    if (!box) {
-      box = document.createElement("div");
-      box.id = "loginError";
-      box.className =
-        "mt-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700";
-
-      const btn = document.getElementById("btn-login-modal");
-      btn?.parentElement?.appendChild(box);
+    function showLoginError(msg) {
+      const box = document.getElementById("loginError");
+      if (!box) return;
+      box.textContent = msg;
+      box.classList.remove("hidden");   // mostrar
     }
-    box.textContent = msg;
-  }
 
-  function clearLoginError() {
-    const box = document.getElementById("loginError");
-    if (box) box.remove();
-  }
+    function clearLoginError() {
+      const box = document.getElementById("loginError");
+      if (!box) return;
+      box.textContent = "";
+      box.classList.add("hidden");      //  ocultar
+    }
+
+  // ---------------- ENTREGA (pedido) ----------------
+
+    const radioRecogida = document.getElementById("entrega-recogida");
+    const radioEnvio = document.getElementById("entrega-envio");
+    const boxDireccion = document.getElementById("box-direccion");
+
+    function refreshEntregaUI() {
+      const envio = radioEnvio?.checked;
+      boxDireccion?.classList.toggle("hidden", !envio);
+    }
+
+    radioRecogida?.addEventListener("change", refreshEntregaUI);
+    radioEnvio?.addEventListener("change", refreshEntregaUI);
+    refreshEntregaUI();
+
 });
