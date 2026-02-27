@@ -139,7 +139,7 @@ final class ProductoRepository
     }
 
      
-         //---------------- ELIMINAR (solo los productos de ese usuario)-------------------------------------
+         //---------------- ELIMINAR (solo los productos de ese usuario activo = 0)-------------------------------------
   
     public function delete(int $id, int $usuarioId): bool
     {

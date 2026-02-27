@@ -27,7 +27,7 @@ if ($pedidoId <= 0) {
 $pdo = db();
 
 try {
-  // (Opcional) validar que existe el pedido
+  //  validar que existe el pedido
   $st = $pdo->prepare("SELECT id, total FROM pedidos WHERE id = ? LIMIT 1");
   $st->execute([$pedidoId]);
   $pedido = $st->fetch();
